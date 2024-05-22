@@ -182,11 +182,13 @@ const HomePage: React.FC = () => {
           Road to the Olympics
         </h2>
       </header>
-      <section className="calendar">
-        <div className="max-w-lg mx-auto">
-          <Calendar />
+      <section className="mb-12">
+        <div className="max-w-20 mx-auto">
+          {/* <Calendar /> */}
           <a href="destination.html">
-            <button>Calendar</button>
+            <button className='block p-2 border rounded-lg bg-white shadow-sm text-gray-700 focus:ring-blue-500 focus:border-blue-500'>
+              Calendar
+              </button>
           </a>
         </div>
       </section>
