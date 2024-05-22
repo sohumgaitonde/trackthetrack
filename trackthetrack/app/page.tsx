@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
+import Calendar from "./calendar/page";
 import 'tailwindcss/tailwind.css';
 
 const events = [
@@ -181,7 +182,14 @@ const HomePage: React.FC = () => {
           Road to the Olympics
         </h2>
       </header>
-
+      <section className="calendar">
+        <div className="max-w-lg mx-auto">
+          <Calendar />
+          <a href="destination.html">
+            <button>Calendar</button>
+          </a>
+        </div>
+      </section>
       <section className="mb-12">
         <div className="max-w-lg mx-auto">
           <label htmlFor="event-selector" className="block text-lg font-medium text-blue-600 mb-3">
