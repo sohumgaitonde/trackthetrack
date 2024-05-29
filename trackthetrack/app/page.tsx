@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useState, useEffect } from 'react';
 import Calendar from "./calendar/page";
 import Ranking from "./rankings/page";
