@@ -57,8 +57,8 @@ const competitorsData: Record<string, { name: string; info: string }[]> = {
   ],
   "1500m": [
     { name: "Cooper Teare", info: "Best Performance: 3:32.16" },
-    { name: "Sophia Harris", info: "Best Performance: 3:30.50" },
-    { name: "James Clark", info: "Best Performance: 3:30.75" },
+    { name: "Yared Nuguse", info: "Best Performance: 3:33.43" },
+    { name: "Hobbs Kessler", info: "Best Performance: 3:33.66" },
     // ...more competitors
   ],
   "5000m": [
