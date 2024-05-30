@@ -1,8 +1,8 @@
 "use client";
-
 import React, { useState, useEffect } from 'react';
 import Calendar from "./calendar/page";
 import Ranking from "./rankings/page";
+import Teare from "./athletes/teare/page";
 import 'tailwindcss/tailwind.css';
 
 
@@ -14,7 +14,7 @@ const HomePage: React.FC = () => {
   function ranking() {
     setmyBool(true)
   }
-  const component = myBool ? <Ranking/> : <Calendar />
+  const component = myBool ? <Ranking/> : <Calendar/>
 
   return (
     <div className="min-h-screen bg-gray-100 p-6">
