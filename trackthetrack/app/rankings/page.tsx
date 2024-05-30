@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 import React, { useState, useEffect } from 'react';
 import 'tailwindcss/tailwind.css';
-import Teare from "../athletes/teare/page";
+import Image from 'next/image';
 
 const events = [
   "100m",
