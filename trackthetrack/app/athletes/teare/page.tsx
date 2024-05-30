@@ -32,7 +32,7 @@ const TearePage: React.FC = () => {
         
           <iframe
             className="w-full h-full"
-            src="https://www.youtube.com/embed/OMNgKw566u8?si=Xi4mARp4Aga8PF6S"
+            src="https://www.youtube.com/embed/OMNgKw566u8"
             title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
