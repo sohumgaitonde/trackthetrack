@@ -186,13 +186,13 @@ const RankingPage: React.FC = () => {
   return (
     <div className="min-h-40 bg-gray-100 flex items-center justify-center">
       <section className="mb-12">
-        <div className="max-w-lg mx-auto">
+        <div className="max-w-sm mx-auto w-60">
           <label htmlFor="event-selector" className="block text-lg font-medium text-blue-600 mb-3">
             Select an Event:
           </label>
           <select
             id="event-selector"
-            className="block w-full p-3 border border-gray-300 rounded-lg shadow-sm bg-white text-gray-700 focus:ring-blue-500 focus:border-blue-500"
+            className="block w-48 p-3 border border-gray-300 rounded-lg shadow-sm bg-white text-gray-700 focus:ring-blue-500 focus:border-blue-500"
             value={selectedEvent}
             onChange={(e) => setSelectedEvent(e.target.value)}
           >
