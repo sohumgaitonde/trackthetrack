@@ -3,10 +3,12 @@
 import React, { useState, useEffect } from 'react';
 import 'tailwindcss/tailwind.css';
 import Link from 'next/link';
+import Teare from '.../assets/teare.jpeg';
+import Image from 'next/image';
 
 
 const TearePage: React.FC = () => {
-
+  
   return (
     <div className="min-h-screen bg-gray-100 p-6">
       <header className="mb-12">
@@ -25,6 +27,19 @@ const TearePage: React.FC = () => {
           Cooper Teare
         </h3>
       </header>
+      <div className="flex flex-col items-center justify-center h-screen">
+      
+        
+          <iframe
+            className="w-full h-full"
+            src="https://www.youtube.com/embed/OMNgKw566u8?si=Xi4mARp4Aga8PF6S"
+            title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
+        </div>
+      
+    
     </div>
   );
 };
