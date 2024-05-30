@@ -2,8 +2,9 @@
 import React, { useState, useEffect } from 'react';
 import Calendar from "./calendar/page";
 import Ranking from "./rankings/page";
-import Teare from "./athletes/teare/page";
 import 'tailwindcss/tailwind.css';
+import Image from 'next/image';
+import logo from './assets/ttt1.png';
 
 
 const HomePage: React.FC = () => {
@@ -18,6 +19,8 @@ const HomePage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-100 p-6">
+      <Image src={logo} alt="Logo" width={128} height={128} />
+      
       <header className="mb-12">
         <h1 className="text-5xl font-extrabold text-center text-blue-700 mb-4">
           Track the Track
