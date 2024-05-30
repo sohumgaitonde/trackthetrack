@@ -26,7 +26,7 @@ const HomePage: React.FC = () => {
           Road to the Olympics
         </h2>
       </header>
-      <section className="flex items-center justify-center bg-gray-100">
+      <section className="flex items-center justify-center bg-gray-100 min-h-20">
         <div className="flex space-x-4">
           
           <button className='block p-2 border rounded-lg bg-white shadow-sm text-gray-700 focus:ring-blue-500 focus:border-blue-500' id="Calendar" onClick={calendar}>

@@ -59,6 +59,9 @@ const competitorsData: Record<string, { name: string; info: string }[]> = {
     { name: "Cooper Teare", info: "Best Performance: 3:32.16" },
     { name: "Yared Nuguse", info: "Best Performance: 3:33.43" },
     { name: "Hobbs Kessler", info: "Best Performance: 3:33.66" },
+    { name: "Colin Sahlman", info: "Best Performance: 3:33.96" },
+    { name: "Nico Young", info: "Best Performance: 3:34.56" },
+    { name: "Nathan Green", info: "Best Performance: 3:34.79" },
     // ...more competitors
   ],
   "5000m": [
@@ -181,7 +184,7 @@ const RankingPage: React.FC = () => {
   }, [selectedEvent]);
 
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center">
+    <div className="min-h-40 bg-gray-100 flex items-center justify-center">
       <section className="mb-12">
         <div className="max-w-lg mx-auto">
           <label htmlFor="event-selector" className="block text-lg font-medium text-blue-600 mb-3">
