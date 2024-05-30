@@ -5,6 +5,7 @@ import 'tailwindcss/tailwind.css';
 import Link from 'next/link';
 import logo from '../../assets/ttt1.png';
 import Image from 'next/image';
+import teare from '../../assets/teare.jpeg';
 
 
 const TearePage: React.FC = () => {
@@ -27,6 +28,7 @@ const TearePage: React.FC = () => {
         <h3 className="text-3xl font-semibold text-center text-blue-500">
           Cooper Teare
         </h3>
+        <Image src={teare} alt="Logo" width={128} height={128} />
       </header>
       <div className="flex flex-col items-center justify-center h-screen">
           <iframe
