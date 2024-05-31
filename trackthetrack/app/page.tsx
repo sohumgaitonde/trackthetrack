@@ -5,6 +5,12 @@ import Ranking from "./rankings/page";
 import 'tailwindcss/tailwind.css';
 import Image from 'next/image';
 import logo from './assets/ttt1.png';
+import nike from './assets/teams/nike.png';
+import uw from './assets/teams/uw.png';
+import on from './assets/teams/on.png';
+import nau from './assets/teams/nau.png';
+import adidas from './assets/teams/adidas.png';
+import none from './assets/teams/none.png';
 
 
 const HomePage: React.FC = () => {
