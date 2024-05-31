@@ -28,12 +28,11 @@ const HomePage: React.FC = () => {
       <Image src={logo} alt="Logo" width={128} height={128} />
       
       <header className="mb-12">
-        <h1 className="text-5xl font-extrabold text-center text-blue-700 mb-4">
-          Track the Track
-        </h1>
-        <h2 className="text-3xl font-semibold text-center text-blue-500">
-          Road to the Olympics
-        </h2>
+      <h1 className="text-8xl font- text-center text-blue-700 mb-4">
+      Track the Track </h1>
+      <h2 className="text-4xl font-mono text-center text-blue-500">
+        Road to the Olympics ꈨ
+      </h2>
       </header>
       <section className="flex items-center justify-center bg-gray-100 min-h-20">
         <div className="flex space-x-4">

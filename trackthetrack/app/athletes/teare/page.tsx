@@ -36,10 +36,10 @@ const TearePage: React.FC = () => {
           </Link>
           <Image src={nike} alt="Logo" width={128} height={128} />
         </h1>
-        <h2 className="text-3xl font-semibold text-center text-blue-500">
+        <h2 className="text-3xl font-mono text-center text-blue-500">
           Road to the Olympics
         </h2>
-        <h3 className="text-3xl font-semibold text-center text-blue-500">
+        <h3 className="text-3xl font-mono text-center text-blue-500">
           Cooper Teare
         </h3>
         <Image src={teare} alt="Logo" width={128} height={128} />
