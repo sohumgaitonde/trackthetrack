@@ -1,12 +1,14 @@
 # !pip install google-api-python-client
 from googleapiclient.discovery import build
 import os
+import json
 
 API_KEY = os.getenv('API_KEY')
-
-print(API_KEY)
-
 youtube = build('youtube', 'v3', developerKey=API_KEY)
+
+output = 'youtube_results.json'
+
+all_results = {}
 
 def search_videos(query, max_results = 5):
   search_response = youtube.search().list(
@@ -33,9 +35,9 @@ add_on = 'Interview Workout Podcast'
 for indiv in athletes:
   query = str(indiv) + " " + str(add_on)
   results = search_videos(query)
+  all_results[indiv] = results
 
-  print(str(indiv.upper()) + " VIDEO RESULTS")
-  for idx, video in enumerate(results):
-      print(f"{idx+1}. {video['title']}")
-      print(f"   Video URL: https://www.youtube.com/embed/{video['videoId']}")
-      print()
+with open(output, "w") as json_file:
+    json.dump(all_results, json_file,indent=4)
+
+print("Results have been written to", output)
