@@ -10,7 +10,7 @@ output = 'youtube_results.json'
 
 all_results = {}
 
-def search_videos(query, max_results = 5):
+def search_videos(query, max_results = 6):
   search_response = youtube.search().list(
       q=query,
       part='snippet',
@@ -30,7 +30,7 @@ def search_videos(query, max_results = 5):
 
   return videos
 
-athletes = ['Yared Nuguse', 'Cole Hocker', 'Hobbs Kessler', 'Eric Holt', 'Samuel Prakel', 'Cooper Teare', 'Vincent Ciattei', 'Henry Wynne', 'Casey Comber', 'Craig Engels']
+athletes = ['Cooper Teare', 'Yared Nuguse', 'Hobbs Kessler', 'Colin Sahlman', 'Nico Young', 'Nathan Green']
 add_on = 'Interview Workout Podcast'
 for indiv in athletes:
   query = str(indiv) + " " + str(add_on)
