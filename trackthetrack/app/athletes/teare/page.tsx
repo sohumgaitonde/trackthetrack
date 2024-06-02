@@ -9,10 +9,11 @@ import teare from '../../assets/athletes/teare.jpeg';
 import nike from '../../assets/teams/nike.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import youtube from "../../../youtube_results.json";
 
 
 const TearePage: React.FC = () => {
-  const urls = ['https://www.youtube.com/embed/OMNgKw566u8', 'https://www.youtube.com/embed/eVoQjQ5wR2A', 'https://www.youtube.com/embed/qQvI1f3GqTE', 'https://www.youtube.com/embed/hSM5zbqU7e8', 'https://www.youtube.com/embed/6_lTXHvTvIA', 'https://www.youtube.com/embed/dO41zkMOCGw']
+  const urls = youtube['Cooper Teare'];
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handlePrev = () => {
@@ -54,12 +55,12 @@ const TearePage: React.FC = () => {
         >
           <FontAwesomeIcon icon={faArrowLeft} size="lg" />
         </button>
-        {urls.slice(currentIndex, currentIndex + 3).map((url, index) => (
+        {youtube['Cooper Teare'].slice(currentIndex, currentIndex + 3).map((url, index) => (
           <div key={index} className="w-full max-w-md">
             <div className="aspect-w-16 aspect-h-9">
               <iframe
                 className="w-full h-full"
-                src={url}
+                src={`https://www.youtube.com/embed/${url['videoId']}`}
                 title={`YouTube video player ${index + 1}`}
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
