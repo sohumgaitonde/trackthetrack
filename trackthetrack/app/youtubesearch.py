@@ -31,7 +31,7 @@ def search_videos(query, max_results = 6):
   return videos
 
 athletes = ['Cooper Teare', 'Yared Nuguse', 'Hobbs Kessler', 'Colin Sahlman', 'Nico Young', 'Nathan Green']
-add_on = 'Interview Workout Podcast'
+add_on = 'Interview Workout'
 for indiv in athletes:
   query = str(indiv) + " " + str(add_on)
   results = search_videos(query)

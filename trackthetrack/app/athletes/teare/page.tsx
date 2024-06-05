@@ -7,6 +7,7 @@ import logo from '../../assets/ttt1.png';
 import Image from 'next/image';
 import teare from '../../assets/athletes/teare.jpeg';
 import nike from '../../assets/teams/nike.png';
+import instagram from '../../assets/instagram.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import youtube from "../../../youtube_results.json";
@@ -77,6 +78,13 @@ const TearePage: React.FC = () => {
           <FontAwesomeIcon icon={faArrowRight} size="lg" />
         </button>
       </div>
+    </div>
+    <div>
+      <button>
+      <Link href='https://www.instagram.com/cooperteare/'>
+        <Image src={instagram} alt="instagram" width={128} height={128} />
+      </Link>
+      </button>
     </div>
     </div>
   );
