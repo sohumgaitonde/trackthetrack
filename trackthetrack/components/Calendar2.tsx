@@ -4,6 +4,8 @@ import advancedFormat from 'dayjs/plugin/advancedFormat';
 dayjs.extend(advancedFormat);
 import Link from 'next/link';
 import eventtest from '../calendar.json';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 
 interface Event {
@@ -89,12 +91,24 @@ const Calendar = () => {
       const dateStr = `${currentYear}-${String(currentMonth).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
       const hasEvent = eventtest.some(event => convertDateString(event.Date) === dateStr);
       days.push(
-        <div
+        <div>
+            <div
           key={day}
           className={`max-w-5xl w-full p-8 bg-white rounded-lg shadow-lg h-24 flex items-center justify-center border cursor-pointer ${hasEvent ? 'bg-blue-300' : ''}`}
           onClick={() => handleClickDate(dateStr)}
         >
+          <div>
+          {hasEvent ? <FontAwesomeIcon icon={faStar} size="lg" /> : ""}
+        </div>
+          <div>
           {day}
+          </div>
+          <div>
+          {hasEvent ? <FontAwesomeIcon icon={faStar} size="lg" /> : ""}
+        </div>
+        </div>
+        
+
         </div>
       );
     }
