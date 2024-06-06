@@ -26,4 +26,4 @@ driver.get(url)
 content = driver.page_source
 calendar_dfA = pd.read_html(content)[0]
 print(calendar_dfA.head)
-calendar_dfA.to_csv('calendarA.csv', sep=',', index=False, encoding='utf-8')
+calendar_dfA.to_json('calendarA.json', orient='records')
