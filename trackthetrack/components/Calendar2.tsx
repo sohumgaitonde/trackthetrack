@@ -4,6 +4,8 @@ import advancedFormat from 'dayjs/plugin/advancedFormat';
 dayjs.extend(advancedFormat);
 import Link from 'next/link';
 import eventtest from '../calendar.json';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 
 interface Event {
@@ -89,12 +91,24 @@ const Calendar = () => {
       const dateStr = `${currentYear}-${String(currentMonth).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
       const hasEvent = eventtest.some(event => convertDateString(event.Date) === dateStr);
       days.push(
-        <div
+        <div>
+            <div
           key={day}
-          className={`w-full h-16 flex items-center justify-center border cursor-pointer ${hasEvent ? 'bg-blue-100' : ''}`}
+          className={`max-w-5xl w-full p-8 bg-white rounded-lg shadow-lg h-24 flex items-center justify-center border cursor-pointer ${hasEvent ? 'bg-blue-300' : ''}`}
           onClick={() => handleClickDate(dateStr)}
         >
+          <div>
+          {hasEvent ? <FontAwesomeIcon icon={faStar} size="lg" /> : ""}
+        </div>
+          <div>
           {day}
+          </div>
+          <div>
+          {hasEvent ? <FontAwesomeIcon icon={faStar} size="lg" /> : ""}
+        </div>
+        </div>
+        
+
         </div>
       );
     }
@@ -115,12 +129,12 @@ const Calendar = () => {
         {renderDays()}
       </div>
       {selectedDate && (
-        <div className="mt-4 p-4 border rounded">
+        <div className="mt-4 p-4 border rounded bg-white">
           <h3 className="text-xl font-bold">Events on {dayjs(selectedDate).format('MMMM D, YYYY')}</h3>
           {getEventsForDate(selectedDate).map((event, index) => (
             <div key={index} className="mt-2">
-              <h4 className="text-lg font-semibold">{event.Name}</h4>
-              <p>{event.Venue}</p>
+              <h4 className="text-lg font-semibold">Meet Name: {event.Name}</h4>
+              <p>Venue: {event.Venue}</p>
               <Link href={event.Discipline} className="text-blue-700 underline">
                 Meet Info
               </Link>
