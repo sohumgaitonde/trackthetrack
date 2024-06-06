@@ -3,7 +3,7 @@ import dayjs from 'dayjs';
 import advancedFormat from 'dayjs/plugin/advancedFormat';
 dayjs.extend(advancedFormat);
 import Link from 'next/link';
-import eventtest from '../calendarA.json';
+import eventtest from '../calendar.json';
 
 
 interface Event {
