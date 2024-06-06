@@ -3,6 +3,8 @@ import dayjs from 'dayjs';
 import advancedFormat from 'dayjs/plugin/advancedFormat';
 dayjs.extend(advancedFormat);
 import Link from 'next/link';
+import eventtest from '../calendar.json';
+
 
 interface Event {
   date: string;
@@ -10,6 +12,29 @@ interface Event {
   description: string;
   link: string;
 }
+const convertDateString = (input: string): string => {
+  const months: { [key: string]: string } = {
+    'JAN': '01',
+    'FEB': '02',
+    'MAR': '03',
+    'APR': '04',
+    'MAY': '05',
+    'JUN': '06',
+    'JUL': '07',
+    'AUG': '08',
+    'SEP': '09',
+    'OCT': '10',
+    'NOV': '11',
+    'DEC': '12',
+  };
+  const [day, month, year] = input.split(' ');
+  const monthNumber = months[month.toUpperCase()];
+
+  // Ensure day is two digits
+  const dayNumber = day.padStart(2, '0');
+
+  return `${year}-${monthNumber}-${dayNumber}`;
+};
 
 const events: Event[] = [
   { date: '2024-06-09', title: 'NY GP', description: 'new york grand prix', link: "https://results.usatf.org/NYCGrandPrix24/"},
@@ -52,7 +77,7 @@ const Calendar = () => {
   };
 
   const getEventsForDate = (date: string) => {
-    return events.filter(event => event.date === date);
+    return eventtest.filter(event => convertDateString(event.Date) === date);
   };
 
   const renderDays = () => {
@@ -62,7 +87,7 @@ const Calendar = () => {
     }
     for (let day = 1; day <= daysInCurrentMonth; day++) {
       const dateStr = `${currentYear}-${String(currentMonth).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
-      const hasEvent = events.some(event => event.date === dateStr);
+      const hasEvent = eventtest.some(event => convertDateString(event.Date) === dateStr);
       days.push(
         <div
           key={day}
@@ -94,9 +119,9 @@ const Calendar = () => {
           <h3 className="text-xl font-bold">Events on {dayjs(selectedDate).format('MMMM D, YYYY')}</h3>
           {getEventsForDate(selectedDate).map((event, index) => (
             <div key={index} className="mt-2">
-              <h4 className="text-lg font-semibold">{event.title}</h4>
-              <p>{event.description}</p>
-              <Link href={event.link} className="text-blue-700 underline">
+              <h4 className="text-lg font-semibold">{event.Name}</h4>
+              <p>{event.Venue}</p>
+              <Link href={event.Discipline} className="text-blue-700 underline">
                 Meet Info
               </Link>
             </div>
