@@ -91,7 +91,7 @@ const Calendar = () => {
       days.push(
         <div
           key={day}
-          className={`w-full h-16 flex items-center justify-center border cursor-pointer ${hasEvent ? 'bg-blue-100' : ''}`}
+          className={`max-w-5xl w-full p-8 bg-white rounded-lg shadow-lg h-24 flex items-center justify-center border cursor-pointer ${hasEvent ? 'bg-blue-300' : ''}`}
           onClick={() => handleClickDate(dateStr)}
         >
           {day}
