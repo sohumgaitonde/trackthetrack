@@ -115,12 +115,12 @@ const Calendar = () => {
         {renderDays()}
       </div>
       {selectedDate && (
-        <div className="mt-4 p-4 border rounded">
+        <div className="mt-4 p-4 border rounded bg-white">
           <h3 className="text-xl font-bold">Events on {dayjs(selectedDate).format('MMMM D, YYYY')}</h3>
           {getEventsForDate(selectedDate).map((event, index) => (
             <div key={index} className="mt-2">
-              <h4 className="text-lg font-semibold">{event.Name}</h4>
-              <p>{event.Venue}</p>
+              <h4 className="text-lg font-semibold">Meet Name: {event.Name}</h4>
+              <p>Venue: {event.Venue}</p>
               <Link href={event.Discipline} className="text-blue-700 underline">
                 Meet Info
               </Link>
