@@ -11,6 +11,7 @@ import on from './assets/teams/on.png';
 import nau from './assets/teams/nau.png';
 import adidas from './assets/teams/adidas.png';
 import none from './assets/teams/none.png';
+import Search from '../components/Search';
 
 
 const HomePage: React.FC = () => {
@@ -49,7 +50,10 @@ const HomePage: React.FC = () => {
       <div>
         {component}
       </div>
-      
+      <div className="flex flex-col items-center justify-center min-h-screen p-4">
+      <h1 className="text-2xl font-bold mb-4">Search for an Athlete</h1>
+      <Search />
+    </div>
     </div>
   );
 };
