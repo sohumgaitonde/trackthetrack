@@ -30,23 +30,22 @@ const TearePage: React.FC = () => {
     <div className="min-h-screen bg-gray-100 p-6">
       
       <header className="mb-12">
-        <h1 className="text-5xl font-extrabold text-center text-blue-700 mb-4">
-        <Image src={logo} alt="Logo" width={128} height={128} />
+        <h1 className="text-5xl font-extrabold text-center text-blue-700 mb-4 w-20">
+        
           <Link href="/">
             <button >
-              Track the Track
+            <Image src={logo} alt="Logo"/>
             </button>
           </Link>
-          <Image src={nike} alt="Logo" width={128} height={128} />
+          
         </h1>
-        <h2 className="text-3xl font-mono text-center text-blue-500">
-          Road to the Olympics
-        </h2>
-        <h3 className="text-3xl font-mono text-center text-blue-500">
+        <h3 className="text-5xl font-extrabold text-center text-blue-500">
           Cooper Teare
         </h3>
         <Image src={teare} alt="Logo" width={128} height={128} />
+        <Image src={nike} alt="Logo" width={128} height={128} />
       </header>
+      
       <div className="flex flex-col items-center">
 
       <div className="flex space-x-4 mb-4">
