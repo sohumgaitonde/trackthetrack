@@ -38,12 +38,6 @@ const convertDateString = (input: string): string => {
   return `${year}-${monthNumber}-${dayNumber}`;
 };
 
-const events: Event[] = [
-  { date: '2024-06-09', title: 'NY GP', description: 'new york grand prix', link: "https://results.usatf.org/NYCGrandPrix24/"},
-  { date: '2024-06-09', title: 'test', description: 'testing multiple events', link: "https://results.usatf.org/NYCGrandPrix24/"}
-  // Add more events here
-];
-
 const daysInMonth = (month: number, year: number) => new Date(year, month, 0).getDate();
 
 const Calendar = () => {
