@@ -11,6 +11,7 @@ import instagram from '../../assets/instagram.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import youtube from "../../../youtube_results.json";
+import spotify from "../../../spotify_search_results.json";
 
 
 const TearePage: React.FC = () => {
@@ -87,6 +88,21 @@ const TearePage: React.FC = () => {
       </Link>
       </button>
     </div>
+      <div>
+        {spotify[0].episodes.items.map((episode, index) => (
+          <div key={index} className="w-full max-w-md">
+            <div className="aspect-w-16 aspect-h-9">
+              <Link href={`https://open.spotify.com/episode/${episode.id}`} target="_blank" rel="noopener noreferrer">
+                {episode.name}
+                <img src={episode.images[0].url}>
+                </img>
+                
+              </Link>
+              
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
