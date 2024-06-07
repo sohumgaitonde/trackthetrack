@@ -22,7 +22,7 @@ const Search = () => {
         athlete.name.toLowerCase().includes(query.toLowerCase())
       );
       setFilteredAthletes(filtered);
-     } else {
+    } else {
       setFilteredAthletes(athletes);
     }
   }, [query]);
@@ -32,7 +32,7 @@ const Search = () => {
   };
 
   return (
-    <div className="relative w-full max-w-md mx-auto mt-4">
+    <div className="relative w-full max-w-md mx-auto">
       <input
         type="text"
         value={query}
