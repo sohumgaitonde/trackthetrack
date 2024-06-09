@@ -118,14 +118,14 @@ const RankingPage: React.FC = () => {
 
       <section>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {athletes.map((competitor, index) => (
+          {competitors.map((competitor, index) => (
             
-            <Link href={`/athletes/${encodeURIComponent(competitor.Athlete[0].split(" ")[1].toLowerCase())}`}>
+            <Link href={`/athletes/${encodeURIComponent(competitor.name.split(" ")[1].toLowerCase())}`}>
               <button key={index} className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow h-40">
-              <h2 className="text-2xl font-semibold text-blue-700">{competitor.Athlete[0]}</h2>
-              <p className="text-gray-600 mt-2">{competitor.Mark}</p>
+              <h2 className="text-2xl font-semibold text-blue-700">{competitor.name}</h2>
+              <p className="text-gray-600 mt-2">{competitor.info}</p>
               
-              {/* <Image src={competitor.team} alt="Team" className='w-8' /> */}
+              <Image src={competitor.team} alt="Team" className='w-8' />
             </button>
             </Link>
           ))}
