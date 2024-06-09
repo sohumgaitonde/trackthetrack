@@ -25,7 +25,8 @@ def filter_results(results, person_name):
     filtered_results = []
     for item in results['episodes']['items']:
         if person_name.lower() in item['description'].lower() or person_name.lower() in item['name'].lower():
-            filtered_results.append(item)
+          if '2024' in item['release_date']:
+              filtered_results.append(item)
     episodes = {"episodes": filtered_results}
     return episodes
 
