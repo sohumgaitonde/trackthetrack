@@ -4,6 +4,7 @@ import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
 import 'tailwindcss/tailwind.css';
 import Image from 'next/image';
+import athletes from '../../1500m.json';
 
 const nike = require('../assets/teams/nike.png');
 const on = require('../assets/teams/on.png');

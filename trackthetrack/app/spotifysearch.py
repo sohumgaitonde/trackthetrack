@@ -20,13 +20,25 @@ def search_spotify(sp, name):
     """Search Spotify for a given name."""
     results = sp.search(q=name, type='episode', market='US')
     return results
+def filter_results(results, person_name):
+    """Filter results to include only those that match the full name more closely."""
+    filtered_results = []
+    for item in results['episodes']['items']:
+        if person_name.lower() in item['description'].lower() or person_name.lower() in item['name'].lower():
+          if '2024' in item['release_date']:
+              filtered_results.append(item)
+    episodes = {"episodes": filtered_results}
+    return episodes
 
 sp = authenticate_spotify()
-search_results = []
+search_results = {}
 
 for name in athletes:
   result = search_spotify(sp, name)
-  search_results.append(result)
+  filtered_results = filter_results(result, name)
+  search_results[name] = filtered_results
+  
+  
 
     # Write the results to a JSON file
 with open('spotify_search_results.json', 'w') as outfile:
