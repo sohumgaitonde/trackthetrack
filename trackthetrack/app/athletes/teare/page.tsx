@@ -88,7 +88,7 @@ const TearePage: React.FC = () => {
       </button>
     </div>
       <div>
-        {spotify[0].episodes.items.map((episode, index) => (
+        {spotify['Cooper Teare'].episodes.map((episode, index) => (
           <div key={index} className="w-full max-w-md">
             <div className="aspect-w-16 aspect-h-9">
               <Link href={`https://open.spotify.com/episode/${episode.id}`} target="_blank" rel="noopener noreferrer">
