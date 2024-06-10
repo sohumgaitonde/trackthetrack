@@ -66,21 +66,21 @@ const TearePage: React.FC = () => {
               </thead>
 
               <tbody>
-              <tr className="bg-white">
+              
                 
               {
                 results[event].map((result, index) => (
-                  <>
+                  <tr className="bg-white">
                     {result_columns.map((col, index) => (
                     <>
                       <td className="p-2">{result[col]}</td>
                     </>
                   ))}
-                  </>
+                  </tr>
                   
               ))
               }
-              </tr>
+              
               </tbody>
               </table>
               </div>
