@@ -140,9 +140,15 @@ for h in headlines:
     events.append(h.text)
 print(events)
 result_tables = driver.find_elements(By.TAG_NAME, "tbody")
+results_header = driver.find_elements(By.TAG_NAME, "thead")
+single_header = results_header[0]
+columns = single_header.find_elements(By.XPATH, './/tr/th')
+print(columns)
+header = []
+for col in columns:
+  header.append(col.text)
+print(header)
 
-print(len(events))
-print(len(result_tables))
 results = {}
   
 all_tables_data = []
@@ -150,34 +156,38 @@ all_tables_data = []
 # Iterate over each table
 for i in range(len(events)):
     table = result_tables[i]
+    
     # Initialize a list to hold the data for the current table
     table_data = []
-    
+
     # Locate all rows within the table's tbody
     rows = table.find_elements(By.XPATH, './/tr')
-    
+  
     # Iterate over each row
     for row in rows:
         # Initialize a list to hold the data for the current row
-        row_data = []
+        row_data = {}
         
         # Locate all cells (td) within the current row
         cells = row.find_elements(By.XPATH, './/td')
-        
+        row_data['event'] = headlines[i].text
         # Iterate over each cell and get its text
-        for cell in cells:
-            row_data.append(cell.text)
-        
+        for j in range(len(cells)):
+            row_data[header[j]] = cells[j].text
+            
         # Add the row data to the table data
         table_data.append(row_data)
+    
     results[headlines[i].text] = table_data
     # Add the table data to the list of all tables data
-    all_tables_data.append(table_data) 
+    all_tables_data.append(results) 
+print(results)
   
-  
-  
-print(results['5000 Metres'])
-#results_df.to_json('cooper.json', orient='records')
+#print(all_tables_data)
+
+
+with open('cooper.json', "w") as json_file:
+    json.dump(results, json_file,indent=4)
 
 #<div class="profileStatistics_tableName__2qDVZ">800 Metres</div>
 #<table class="profileStatistics_table__1o71p"

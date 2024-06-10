@@ -12,11 +12,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import youtube from "../../../youtube_results.json";
 import spotify from "../../../spotify_search_results.json";
+import results from "../../../cooper.json";
 
 
 const TearePage: React.FC = () => {
   const athlete = 'Cooper Teare';
   const videos = youtube[athlete];
+  const events = Object.keys(results);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handlePrev = () => {
@@ -47,6 +49,38 @@ const TearePage: React.FC = () => {
         <Image src={team_logo} alt="Logo" width={128} height={128} />
       </header>
       
+      <div>
+        {
+          events.map((event, index) => (
+            <div key={index} className="w-full max-w-md">
+              <div className='text-2xl font-extrabold text-center'>
+                {event}
+              </div>
+              <div className='flex'>
+              {
+                results[event].map((result, index) => (
+                  <div key={index} className="w-full max-w-md">
+                  
+                  <div className='flex'>
+                    
+                    {result['Date']}
+                    {result['Competition']}
+                    {result['Result']}
+                  </div>
+                  </div>
+
+              ))
+              }
+              </div>
+            </div>
+
+          ))
+        }
+      </div>
+
+
+
+
       <div className="flex flex-col items-center">
 
       <div className="flex space-x-4 mb-4">
