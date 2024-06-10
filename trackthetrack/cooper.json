@@ -1,0 +1,230 @@
+{
+    "800 Metres": [
+        {
+            "event": "800 Metres",
+            "Date": "03 MAY 2024",
+            "Competition": "The Hill City Twilight, Shellenberger Field & Dr. Jack M. Toms Track, Lynchburg, VA",
+            "Cnt.": "USA",
+            "Result": "DNF",
+            "Wind": "",
+            "Cat": "F",
+            "Race": "F1",
+            "Pl.": "N/A",
+            "Score": "",
+            "Remarks": ""
+        }
+    ],
+    "1000 Metres Short Track": [
+        {
+            "event": "1000 Metres Short Track",
+            "Date": "03 FEB 2024",
+            "Competition": "Doc Hale Virginia Tech Invitational, Rector Fieldhouse, Blacksburg, VA (i)",
+            "Cnt.": "USA",
+            "Result": "2:19.80",
+            "Wind": "",
+            "Cat": "F",
+            "Race": "F",
+            "Pl.": "2.",
+            "Score": "1143",
+            "Remarks": ""
+        }
+    ],
+    "1500 Metres": [
+        {
+            "event": "1500 Metres",
+            "Date": "28 APR 2024",
+            "Competition": "Virginia High Performance, UVA Lanningan Field, Charlottesville, VA - Invitational Events",
+            "Cnt.": "USA",
+            "Result": "3:32.16",
+            "Wind": "",
+            "Cat": "F",
+            "Race": "F",
+            "Pl.": "1.",
+            "Score": "1214",
+            "Remarks": ""
+        },
+        {
+            "event": "1500 Metres",
+            "Date": "03 MAY 2024",
+            "Competition": "The Hill City Twilight, Shellenberger Field & Dr. Jack M. Toms Track, Lynchburg, VA",
+            "Cnt.": "USA",
+            "Result": "DNF",
+            "Wind": "",
+            "Cat": "F",
+            "Race": "F1",
+            "Pl.": "N/A",
+            "Score": "",
+            "Remarks": ""
+        },
+        {
+            "event": "1500 Metres",
+            "Date": "09 JUN 2024",
+            "Competition": "Portland Track Festival - High Performance, Lincoln HS, Portland, OR",
+            "Cnt.": "USA",
+            "Result": "3:35.48",
+            "Wind": "",
+            "Cat": "C",
+            "Race": "F",
+            "Pl.": "1.",
+            "Score": "1168",
+            "Remarks": ""
+        }
+    ],
+    "1500 Metres Short Track": [
+        {
+            "event": "1500 Metres Short Track",
+            "Date": "11 FEB 2024",
+            "Competition": "Millrose Games, Armory Track&Field Center, New York, NY (i) - Split times",
+            "Cnt.": "USA",
+            "Result": "3:36.74",
+            "Wind": "",
+            "Cat": "A",
+            "Race": "F",
+            "Pl.": "N/A",
+            "Score": "1203",
+            "Remarks": "ST"
+        },
+        {
+            "event": "1500 Metres Short Track",
+            "Date": "17 FEB 2024",
+            "Competition": "USA Indoor Championships, Convention Center, Albuquerque, NM (i)",
+            "Cnt.": "USA",
+            "Result": "3:38.99",
+            "Wind": "",
+            "Cat": "D",
+            "Race": "F",
+            "Pl.": "4.",
+            "Score": "1171",
+            "Remarks": ""
+        }
+    ],
+    "Mile": [
+        {
+            "event": "Mile",
+            "Date": "25 MAY 2024",
+            "Competition": "Prefontaine Classic, Hayward Field, Eugene, OR - Diamond Discipline",
+            "Cnt.": "USA",
+            "Result": "3:53.92",
+            "Wind": "",
+            "Cat": "GW",
+            "Race": "F",
+            "Pl.": "14.",
+            "Score": "1150",
+            "Remarks": ""
+        }
+    ],
+    "Mile Short Track": [
+        {
+            "event": "Mile Short Track",
+            "Date": "03 FEB 2024",
+            "Competition": "Doc Hale Virginia Tech Invitational, Rector Fieldhouse, Blacksburg, VA (i)",
+            "Cnt.": "USA",
+            "Result": "DNF",
+            "Wind": "",
+            "Cat": "F",
+            "Race": "F1",
+            "Pl.": "N/A",
+            "Score": "",
+            "Remarks": ""
+        },
+        {
+            "event": "Mile Short Track",
+            "Date": "11 FEB 2024",
+            "Competition": "Millrose Games, Armory Track&Field Center, New York, NY (i) - Indoor Meeting",
+            "Cnt.": "USA",
+            "Result": "3:53.41",
+            "Wind": "",
+            "Cat": "A",
+            "Race": "F",
+            "Pl.": "8.",
+            "Score": "1216",
+            "Remarks": ""
+        }
+    ],
+    "5000 Metres": [
+        {
+            "event": "5000 Metres",
+            "Date": "19 APR 2024",
+            "Competition": "Wake Forest Invitational, Kentner Stadium Wake Forest University, Winston Salem, NC - Olympic Development",
+            "Cnt.": "USA",
+            "Result": "DNF",
+            "Wind": "",
+            "Cat": "F",
+            "Race": "F",
+            "Pl.": "N/A",
+            "Score": "",
+            "Remarks": ""
+        },
+        {
+            "event": "5000 Metres",
+            "Date": "03 MAY 2024",
+            "Competition": "The Hill City Twilight, Shellenberger Field & Dr. Jack M. Toms Track, Lynchburg, VA",
+            "Cnt.": "USA",
+            "Result": "DNF",
+            "Wind": "",
+            "Cat": "F",
+            "Race": "F",
+            "Pl.": "N/A",
+            "Score": "",
+            "Remarks": ""
+        },
+        {
+            "event": "5000 Metres",
+            "Date": "17 MAY 2024",
+            "Competition": "USATF Los Angeles Grand Prix, Drake Stadium, Los Angeles, CA",
+            "Cnt.": "USA",
+            "Result": "12:54.72",
+            "Wind": "",
+            "Cat": "A",
+            "Race": "F",
+            "Pl.": "9.",
+            "Score": "1229",
+            "Remarks": ""
+        }
+    ],
+    "5 Kilometres Road": [
+        {
+            "event": "5 Kilometres Road",
+            "Date": "13 APR 2024",
+            "Competition": "B.A.A. 5K, Boston, MA",
+            "Cnt.": "USA",
+            "Result": "13:38",
+            "Wind": "",
+            "Cat": "E",
+            "Race": "F",
+            "Pl.": "1.",
+            "Score": "1074",
+            "Remarks": ""
+        }
+    ],
+    "Cross Country": [
+        {
+            "event": "Cross Country",
+            "Date": "20 JAN 2024",
+            "Competition": "USA Cross Country Championships, Pole Green Park, Richmond, VA - XC 10.0km",
+            "Cnt.": "USA",
+            "Result": "29:07",
+            "Wind": "",
+            "Cat": "B",
+            "Race": "F",
+            "Pl.": "1.",
+            "Score": "",
+            "Remarks": ""
+        }
+    ],
+    "4x400 Metres Relay": [
+        {
+            "event": "4x400 Metres Relay",
+            "Date": "03 MAY 2024",
+            "Competition": "The Hill City Twilight, Shellenberger Field & Dr. Jack M. Toms Track, Lynchburg, VA",
+            "Cnt.": "USA",
+            "Result": "3:20.29",
+            "Wind": "",
+            "Cat": "F",
+            "Race": "F",
+            "Pl.": "2.",
+            "Score": "902",
+            "Remarks": ""
+        }
+    ]
+}

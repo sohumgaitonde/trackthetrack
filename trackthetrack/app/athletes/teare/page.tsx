@@ -12,11 +12,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import youtube from "../../../youtube_results.json";
 import spotify from "../../../spotify_search_results.json";
+import results from "../../../cooper.json";
 
 
 const TearePage: React.FC = () => {
   const athlete = 'Cooper Teare';
   const videos = youtube[athlete];
+  const events = Object.keys(results);
+  const result_columns = Object.keys(results[events[0]][0]);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handlePrev = () => {
@@ -46,6 +49,49 @@ const TearePage: React.FC = () => {
         <Image src={athlete_picture} alt="Logo" width={128} height={128} />
         <Image src={team_logo} alt="Logo" width={128} height={128} />
       </header>
+      
+      <div>
+        {
+          events.map((event, index) => (
+            <div key={index} className="w-full max-w-md">
+              <div className="bg-black text-white p-2 text-lg font-bold mt-4">{event}</div>
+              <div>
+              <table className="w-full text-left">
+              <thead className="bg-purple-400 text-white">
+              <tr>
+              {result_columns.map((column, index) => (
+                <th className="p-2">{column}</th>
+              ))}
+              </tr>
+              </thead>
+
+              <tbody>
+              
+                
+              {
+                results[event].map((result, index) => (
+                  <tr className="bg-white">
+                    {result_columns.map((col, index) => (
+                    <>
+                      <td className="p-2">{result[col]}</td>
+                    </>
+                  ))}
+                  </tr>
+                  
+              ))
+              }
+              
+              </tbody>
+              </table>
+              </div>
+              
+
+              
+            </div>
+
+          ))
+        }
+      </div>
       
       <div className="flex flex-col items-center">
 

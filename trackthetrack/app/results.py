@@ -16,7 +16,9 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.action_chains import ActionChains
 chrome_options = webdriver.ChromeOptions()
-
+#chrome_options.add_argument('--headless') # ensure GUI is off
+#chrome_options.add_argument('--no-sandbox')
+#chrome_options.add_argument('--disable-dev-shm-usage')
 driver = webdriver.Chrome(options=chrome_options)
 
 
@@ -86,7 +88,7 @@ driver = webdriver.Chrome(options=chrome_options)
 driver.get(profile_links[0])
 driver.maximize_window()
 actions = ActionChains(driver)
-print(driver.title)
+
 
 url = profile_links[0]
 html = requests.get(url)
@@ -118,9 +120,6 @@ time.sleep(3)
 element.click()
 #<div class="profileStatistics_tab__1Blal profileStatistics_active__1QQ9F">Results</div>
 
-
-t1= driver.find_elements(By.CLASS_NAME, 'profileStatistics_tab__1Blal profileStatistics_active__1QQ9F')
-print(t1)
 #button_list[3].send_keys('\n')
 
 
@@ -132,7 +131,63 @@ for button in button_list:
 
 '''
 
-time.sleep(8)
-content = driver.page_source
-test = pd.read_html(content)
-print(test)
+time.sleep(1)
+
+headlines = driver.find_elements(By.CLASS_NAME, 'profileStatistics_tableName__2qDVZ')
+events = []
+for h in headlines:
+  if not '\n' in h.text:
+    events.append(h.text)
+print(events)
+result_tables = driver.find_elements(By.TAG_NAME, "tbody")
+results_header = driver.find_elements(By.TAG_NAME, "thead")
+single_header = results_header[0]
+columns = single_header.find_elements(By.XPATH, './/tr/th')
+print(columns)
+header = []
+for col in columns:
+  header.append(col.text)
+print(header)
+
+results = {}
+  
+all_tables_data = []
+
+# Iterate over each table
+for i in range(len(events)):
+    table = result_tables[i]
+    
+    # Initialize a list to hold the data for the current table
+    table_data = []
+
+    # Locate all rows within the table's tbody
+    rows = table.find_elements(By.XPATH, './/tr')
+  
+    # Iterate over each row
+    for row in rows:
+        # Initialize a list to hold the data for the current row
+        row_data = {}
+        
+        # Locate all cells (td) within the current row
+        cells = row.find_elements(By.XPATH, './/td')
+        row_data['event'] = headlines[i].text
+        # Iterate over each cell and get its text
+        for j in range(len(cells)):
+            row_data[header[j]] = cells[j].text
+            
+        # Add the row data to the table data
+        table_data.append(row_data)
+    
+    results[headlines[i].text] = table_data
+    # Add the table data to the list of all tables data
+    all_tables_data.append(results) 
+print(results)
+  
+#print(all_tables_data)
+
+
+with open('cooper.json', "w") as json_file:
+    json.dump(results, json_file,indent=4)
+
+#<div class="profileStatistics_tableName__2qDVZ">800 Metres</div>
+#<table class="profileStatistics_table__1o71p"
