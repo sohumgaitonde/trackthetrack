@@ -139,16 +139,19 @@ const TearePage: React.FC = () => {
         </button>
       </div>
     </div>
-
-        {spotify[athlete].episodes.map((episode, index) => (
-          <>
-
-              <iframe className="border-radius:12px w-full h-full" 
+    <div className="container mx-auto p-4">
+  <div className="flex flex-wrap -mx-2">
+        {spotify[athlete].episodes.slice(0, 3).map((episode, index) => (
+          <div key = {index} className="w-full sm:w-1/2 lg:w-1/3 px-2 mb-4">
+              <iframe key={index} className="w-full mb-0 ma-0" 
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
               src={`https://open.spotify.com/embed/episode/${episode.id}?utm_source=generator`}>
               </iframe>
-
-          </>
+          </div>
         ))}
+        </div>
+      </div>
+        
 
     </div>
   );
