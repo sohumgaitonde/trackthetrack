@@ -103,7 +103,7 @@ const RankingPage: React.FC = () => {
           </label>
           <select
             id="event-selector"
-            className="block w-48 p-3 border border-gray-300 rounded-lg shadow-sm bg-white text-gray-700 focus:ring-blue-500 focus:border-blue-500"
+            className="block w-48 p-3 border border-gray-300 rounded-lg shadow-sm bg-white text-gray-700 shadow-lg hover:shadow-xl transition-shadow"
             value={selectedEvent}
             onChange={(e) => setSelectedEvent(e.target.value)}
           >

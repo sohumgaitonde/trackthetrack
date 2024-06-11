@@ -38,10 +38,10 @@ const HomePage: React.FC = () => {
       <section className="flex items-center justify-center bg-gray-100 min-h-20">
         <div className="flex space-x-4">
           
-          <button className='block p-2 border rounded-lg bg-white shadow-sm text-gray-700 focus:ring-blue-500 focus:border-blue-500' id="Calendar" onClick={calendar}>
+          <button className='block p-2 border rounded-lg bg-white shadow-sm text-gray-700 focus:ring-blue-500 focus:border-blue-500 shadow-lg hover:shadow-xl transition-shadow' id="Calendar" onClick={calendar}>
             Calendar
           </button>
-          <button className='block p-2 border rounded-lg bg-white shadow-sm text-gray-700 focus:ring-blue-500 focus:border-blue-500' id="Rankings" onClick={ranking}>
+          <button className='block p-2 border rounded-lg bg-white shadow-sm text-gray-700 focus:ring-blue-500 focus:border-blue-500 shadow-lg hover:shadow-xl transition-shadow' id="Rankings" onClick={ranking}>
             Rankings
           </button>
         </div>

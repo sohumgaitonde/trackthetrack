@@ -13,6 +13,7 @@ import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import youtube from "../../../youtube_results.json";
 import spotify from "../../../spotify_search_results.json";
 import results from "../../../cooper.json";
+import Spotify from 'react-spotify-embed';
 
 
 const TearePage: React.FC = () => {
@@ -38,7 +39,7 @@ const TearePage: React.FC = () => {
         
           <Link href="/">
             <button >
-            <Image src={logo} alt="Logo"/>
+            <Image src={logo} alt="Logo" className="shadow-lg hover:shadow-xl transition-shadow"/>
             </button>
           </Link>
           
@@ -53,11 +54,11 @@ const TearePage: React.FC = () => {
       <div>
         {
           events.map((event, index) => (
-            <div key={index} className="w-full max-w-md">
-              <div className="bg-black text-white p-2 text-lg font-bold mt-4">{event}</div>
+            <div key={index} className="w-full min-w-lg">
+              <div className="bg-black text-white p-2 text-lg font-bold mt-4 min-w-full">{event}</div>
               <div>
               <table className="w-full text-left">
-              <thead className="bg-purple-400 text-white">
+              <thead className="w-full bg-blue-400 text-white">
               <tr>
               {result_columns.map((column, index) => (
                 <th className="p-2">{column}</th>
@@ -134,21 +135,17 @@ const TearePage: React.FC = () => {
       </Link>
       </button>
     </div>
-      <div>
+
         {spotify[athlete].episodes.map((episode, index) => (
-          <div key={index} className="w-full max-w-md">
-            <div className="aspect-w-16 aspect-h-9">
-              <Link href={`https://open.spotify.com/episode/${episode.id}`} target="_blank" rel="noopener noreferrer">
-                {episode.name}
-                <img src={episode.images[0].url}>
-                </img>
-                
-              </Link>
-              
-            </div>
-          </div>
+          <>
+
+              <iframe className="border-radius:12px w-full h-full" 
+              src={`https://open.spotify.com/embed/episode/${episode.id}?utm_source=generator`}>
+              </iframe>
+
+          </>
         ))}
-      </div>
+
     </div>
   );
 };
