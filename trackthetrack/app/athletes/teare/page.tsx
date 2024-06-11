@@ -23,6 +23,10 @@ const TearePage: React.FC = () => {
   const result_columns = Object.keys(results[events[0]][0]);
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  const even = (index: any) => {
+    return index % 2 === 0;
+  }
+
   const handlePrev = () => {
     setCurrentIndex((prevIndex) => Math.max(prevIndex - 3, 0));
   };
@@ -34,6 +38,25 @@ const TearePage: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-100 p-6">
       
+      <div className="container mx-auto p-4">
+      
+        <div className="flex flex-col items-center bg-white p-6 rounded-lg shadow-lg">
+            
+            <Image src={athlete_picture} alt="Athlete Photo" className="w-48 h-48 rounded-full mb-4"/>
+
+            <div className="text-center mb-4">
+                <p className="text-xl">Age: 30</p>
+                <p className="text-xl">Hometown: New York</p>
+            </div>
+            <a href='https://www.instagram.com/cooperteare/' target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
+                Follow on Instagram
+            </a>
+        </div>
+     
+
+
+      </div>
+
       <header className="mb-12">
         <h1 className="text-5xl font-extrabold text-center text-blue-700 mb-4 w-20">
         
@@ -49,6 +72,13 @@ const TearePage: React.FC = () => {
         </h3>
         <Image src={athlete_picture} alt="Logo" width={128} height={128} />
         <Image src={team_logo} alt="Logo" width={128} height={128} />
+        
+      <button>
+      <Link href='https://www.instagram.com/cooperteare/'>
+        <Image src={instagram} alt="instagram" width={128} height={128} />
+      </Link>
+      </button>
+   
       </header>
       
       <div>
@@ -71,7 +101,7 @@ const TearePage: React.FC = () => {
                 
               {
                 results[event].map((result, index) => (
-                  <tr className="bg-white">
+                  <tr className={`${even(index) ? 'bg-white' : 'bg-gray-200'}`}>
                     {result_columns.map((col, index) => (
                     <>
                       <td className="p-2">{result[col]}</td>
@@ -128,23 +158,19 @@ const TearePage: React.FC = () => {
         </button>
       </div>
     </div>
-    <div>
-      <button>
-      <Link href='https://www.instagram.com/cooperteare/'>
-        <Image src={instagram} alt="instagram" width={128} height={128} />
-      </Link>
-      </button>
-    </div>
-
-        {spotify[athlete].episodes.map((episode, index) => (
-          <>
-
-              <iframe className="border-radius:12px w-full h-full" 
+    <div className="container mx-auto p-4">
+  <div className="flex flex-wrap -mx-2">
+        {spotify[athlete].episodes.slice(0, 3).map((episode, index) => (
+          <div key = {index} className="w-full sm:w-1/2 lg:w-1/3 px-2 mb-4">
+              <iframe key={index} className="w-full mb-0 ma-0" 
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
               src={`https://open.spotify.com/embed/episode/${episode.id}?utm_source=generator`}>
               </iframe>
-
-          </>
+          </div>
         ))}
+        </div>
+      </div>
+        
 
     </div>
   );
