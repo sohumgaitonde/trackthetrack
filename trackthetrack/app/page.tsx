@@ -40,7 +40,7 @@ const HomePage: React.FC = () => {
   </div>
   <nav className="flex space-x-4">
     <a href="#" className="text-zinc-800 dark:text-white hover:text-orange-500">Home</a>
-    <a href="#" className="text-zinc-800 dark:text-white hover:text-orange-500">Rankings</a>
+    <a href="/rankings" className="text-zinc-800 dark:text-white hover:text-orange-500">Rankings</a>
     <a href="/calendar2" className="text-zinc-800 dark:text-white hover:text-orange-500">Calendar</a>
     <a href="/about-us" className="text-zinc-800 dark:text-white hover:text-orange-500">About Us</a>
     <a href="#" className="text-zinc-800 dark:text-white hover:text-orange-500">Athletes</a>
