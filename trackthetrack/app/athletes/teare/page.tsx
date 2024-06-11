@@ -38,6 +38,25 @@ const TearePage: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-100 p-6">
       
+      <div className="container mx-auto p-4">
+      
+        <div className="flex flex-col items-center bg-white p-6 rounded-lg shadow-lg">
+            
+            <Image src={athlete_picture} alt="Athlete Photo" className="w-48 h-48 rounded-full mb-4"/>
+
+            <div className="text-center mb-4">
+                <p className="text-xl">Age: 30</p>
+                <p className="text-xl">Hometown: New York</p>
+            </div>
+            <a href='https://www.instagram.com/cooperteare/' target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
+                Follow on Instagram
+            </a>
+        </div>
+     
+
+
+      </div>
+
       <header className="mb-12">
         <h1 className="text-5xl font-extrabold text-center text-blue-700 mb-4 w-20">
         
