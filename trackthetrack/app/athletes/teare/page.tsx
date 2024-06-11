@@ -53,11 +53,11 @@ const TearePage: React.FC = () => {
       <div>
         {
           events.map((event, index) => (
-            <div key={index} className="w-full max-w-md">
-              <div className="bg-black text-white p-2 text-lg font-bold mt-4">{event}</div>
+            <div key={index} className="w-full min-w-lg">
+              <div className="bg-black text-white p-2 text-lg font-bold mt-4 min-w-full">{event}</div>
               <div>
               <table className="w-full text-left">
-              <thead className="bg-purple-400 text-white">
+              <thead className="w-full bg-blue-400 text-white">
               <tr>
               {result_columns.map((column, index) => (
                 <th className="p-2">{column}</th>
