@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect} from 'react';
+
 
 
 const athletes = [
@@ -31,18 +32,28 @@ const Search = () => {
     setQuery(event.target.value);
   };
 
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter' && filteredAthletes.length > 0) {
+      const firstAthlete = filteredAthletes[0];
+      const firstName = firstAthlete.name.split(" ")[1].toLowerCase();
+      window.location.href = `/athletes/${encodeURIComponent(firstName)}`;
+    }
+  };
+  
+
   return (
     <div className="relative w-full max-w-md mx-auto">
       <input
         type="text"
         value={query}
         onChange={handleSearch}
+        onKeyDown={handleKeyDown}
         placeholder="Search for an athlete"
         className="w-full p-2 border border-gray-300 rounded"
       />
       {query && (
         <ul className="absolute z-10 w-full bg-white border border-gray-300 rounded mt-1 max-h-60 overflow-y-auto">
-          {filteredAthletes.map(athlete => (
+          {filteredAthletes.map((athlete, index) => (
             <li key={athlete.name} className="p-2 cursor-pointer hover:bg-gray-200">
               <Link href={`/athletes/${encodeURIComponent(athlete.name.split(" ")[1].toLowerCase())}`}>
                 <button>
