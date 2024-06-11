@@ -42,7 +42,7 @@ const HomePage: React.FC = () => {
     <a href="#" className="text-zinc-800 dark:text-white hover:text-orange-500">Home</a>
     <a href="#" className="text-zinc-800 dark:text-white hover:text-orange-500">Rankings</a>
     <a href="#" className="text-zinc-800 dark:text-white hover:text-orange-500">Calendar</a>
-    <a href="#" className="text-zinc-800 dark:text-white hover:text-orange-500">About Us</a>
+    <a href="/about-us" className="text-zinc-800 dark:text-white hover:text-orange-500">About Us</a>
     <a href="#" className="text-zinc-800 dark:text-white hover:text-orange-500">Athletes</a>
     <a href="#" className="text-zinc-800 dark:text-white hover:text-orange-500">Teams</a>
   </nav>
