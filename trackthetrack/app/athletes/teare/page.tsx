@@ -23,6 +23,10 @@ const TearePage: React.FC = () => {
   const result_columns = Object.keys(results[events[0]][0]);
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  const even = (index: any) => {
+    return index % 2 === 0;
+  }
+
   const handlePrev = () => {
     setCurrentIndex((prevIndex) => Math.max(prevIndex - 3, 0));
   };
@@ -49,6 +53,13 @@ const TearePage: React.FC = () => {
         </h3>
         <Image src={athlete_picture} alt="Logo" width={128} height={128} />
         <Image src={team_logo} alt="Logo" width={128} height={128} />
+        
+      <button>
+      <Link href='https://www.instagram.com/cooperteare/'>
+        <Image src={instagram} alt="instagram" width={128} height={128} />
+      </Link>
+      </button>
+   
       </header>
       
       <div>
@@ -71,7 +82,7 @@ const TearePage: React.FC = () => {
                 
               {
                 results[event].map((result, index) => (
-                  <tr className="bg-white">
+                  <tr className={`${even(index) ? 'bg-white' : 'bg-gray-200'}`}>
                     {result_columns.map((col, index) => (
                     <>
                       <td className="p-2">{result[col]}</td>
@@ -127,13 +138,6 @@ const TearePage: React.FC = () => {
           <FontAwesomeIcon icon={faArrowRight} size="lg" />
         </button>
       </div>
-    </div>
-    <div>
-      <button>
-      <Link href='https://www.instagram.com/cooperteare/'>
-        <Image src={instagram} alt="instagram" width={128} height={128} />
-      </Link>
-      </button>
     </div>
 
         {spotify[athlete].episodes.map((episode, index) => (
