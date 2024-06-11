@@ -39,7 +39,7 @@ const TearePage: React.FC = () => {
         
           <Link href="/">
             <button >
-            <Image src={logo} alt="Logo"/>
+            <Image src={logo} alt="Logo" className="shadow-lg hover:shadow-xl transition-shadow"/>
             </button>
           </Link>
           
