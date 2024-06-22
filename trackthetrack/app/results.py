@@ -98,9 +98,14 @@ time.sleep(3)
 
 wait = WebDriverWait(driver, 10) 
 cookies = wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[1]/div[1]/div[2]/a')))
+
 cookies.click()
 time.sleep(3)
 # getting athlete info
+first_name = driver.find_element(By.XPATH, '/html/body/div[2]/div[3]/div[2]/div/div[1]/div/div/h1/span[1]')
+last_name = driver.find_element(By.XPATH, '/html/body/div[2]/div[3]/div[2]/div/div[1]/div/div/h1/span[2]')
+name = first_name.text + last_name.text
+print(name)
 nationality = driver.find_elements(By.XPATH, "/html/body/div[2]/div[3]/div[2]/div/div[2]/div[2]/div[2]")
 nationality = nationality[0].text
 birthday = driver.find_elements(By.XPATH, '/html/body/div[2]/div[3]/div[2]/div/div[2]/div[3]/div[2]')
@@ -182,6 +187,11 @@ for i in range(len(events)):
 #print(results)
   
 #print(all_tables_data)
+athlete_info = {}
+athlete_info['nationality'] = nationality
+athlete_info['birthday'] = birthday
+athlete_info['age'] = age
+athlete_info['achievements'] = achievements_list
 
 
 with open('cooper.json', "w") as json_file:
