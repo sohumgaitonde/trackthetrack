@@ -104,8 +104,8 @@ time.sleep(3)
 # getting athlete info
 first_name = driver.find_element(By.XPATH, '/html/body/div[2]/div[3]/div[2]/div/div[1]/div/div/h1/span[1]')
 last_name = driver.find_element(By.XPATH, '/html/body/div[2]/div[3]/div[2]/div/div[1]/div/div/h1/span[2]')
-name = first_name.text + last_name.text
-print(name)
+name = first_name.text + " " + last_name.text
+
 nationality = driver.find_elements(By.XPATH, "/html/body/div[2]/div[3]/div[2]/div/div[2]/div[2]/div[2]")
 nationality = nationality[0].text
 birthday = driver.find_elements(By.XPATH, '/html/body/div[2]/div[3]/div[2]/div/div[2]/div[3]/div[2]')
@@ -117,7 +117,7 @@ time.sleep(1)
 
 #get achievements
 achievements = driver.find_elements(By.CLASS_NAME, "profileStatistics_countWrapper__38JNR")
-print(len(achievements))
+
 achievements_list = []
 for achievement in achievements:
   count = achievement.find_elements(By.XPATH, './/span')
@@ -192,7 +192,9 @@ athlete_info['nationality'] = nationality
 athlete_info['birthday'] = birthday
 athlete_info['age'] = age
 athlete_info['achievements'] = achievements_list
-
+athlete_info['name'] = name
+with open('athlete_info.json', 'w') as json_file:
+    json.dump(athlete_info, json_file, indent=4)
 
 with open('cooper.json', "w") as json_file:
     json.dump(results, json_file,indent=4)
