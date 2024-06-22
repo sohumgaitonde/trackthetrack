@@ -96,58 +96,61 @@ soup = bs(html.text, 'lxml')
 driver.get(url)
 time.sleep(3)
 
-wait = WebDriverWait(driver, 10)
+wait = WebDriverWait(driver, 10) 
 cookies = wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[1]/div[1]/div[2]/a')))
+
 cookies.click()
-time.sleep(4)
-
-
-element = wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div[5]/div/div[1]/ul/li[4]')))
-#element2 = wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div[5]/div/div[2]/div/div[1]/div[2]/div[1]/div/table/tbody/tr[3]/td[1]/a')))
-
-#element3 = wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/section[2]/div[1]/div[1]/div/h1')))
-
-
 time.sleep(3)
-#print(button_list.text)
-#print(button_list)
+# getting athlete info
+first_name = driver.find_element(By.XPATH, '/html/body/div[2]/div[3]/div[2]/div/div[1]/div/div/h1/span[1]')
+last_name = driver.find_element(By.XPATH, '/html/body/div[2]/div[3]/div[2]/div/div[1]/div/div/h1/span[2]')
+name = first_name.text + " " + last_name.text
 
-
-#print("Is element clickable:", element.is_enabled() and element.is_displayed())
-#print("Element text:", button_list.text)
-#actions.move_to_element(element3).perform()
-time.sleep(3)
-element.click()
-#<div class="profileStatistics_tab__1Blal profileStatistics_active__1QQ9F">Results</div>
-
-#button_list[3].send_keys('\n')
-
-
-'''
-for button in button_list:
-  print(button.text)
-  if button.text == "Results":
-    button.click()
-
-'''
+nationality = driver.find_elements(By.XPATH, "/html/body/div[2]/div[3]/div[2]/div/div[2]/div[2]/div[2]")
+nationality = nationality[0].text
+birthday = driver.find_elements(By.XPATH, '/html/body/div[2]/div[3]/div[2]/div/div[2]/div[3]/div[2]')
+birthday = birthday[0].text
+age = driver.find_elements(By.XPATH, '/html/body/div[2]/div[3]/div[2]/div/div[2]/div[5]/div[2]')
+age = age[0].text
 
 time.sleep(1)
+
+#get achievements
+achievements = driver.find_elements(By.CLASS_NAME, "profileStatistics_countWrapper__38JNR")
+
+achievements_list = []
+for achievement in achievements:
+  count = achievement.find_elements(By.XPATH, './/span')
+  
+  achievements_list.append({count[1].text: count[0].text})
+
+time.sleep(1)
+
+#go to results tab
+element = wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div[5]/div/div[1]/ul/li[4]')))
+
+time.sleep(3)
+element.click()
+
+time.sleep(1)
+
+#get the events and loop over them getting results
 
 headlines = driver.find_elements(By.CLASS_NAME, 'profileStatistics_tableName__2qDVZ')
 events = []
 for h in headlines:
   if not '\n' in h.text:
     events.append(h.text)
-print(events)
+#print(events)
 result_tables = driver.find_elements(By.TAG_NAME, "tbody")
 results_header = driver.find_elements(By.TAG_NAME, "thead")
 single_header = results_header[0]
 columns = single_header.find_elements(By.XPATH, './/tr/th')
-print(columns)
+#print(columns)
 header = []
 for col in columns:
   header.append(col.text)
-print(header)
+#print(header)
 
 results = {}
   
@@ -181,10 +184,17 @@ for i in range(len(events)):
     results[headlines[i].text] = table_data
     # Add the table data to the list of all tables data
     all_tables_data.append(results) 
-print(results)
+#print(results)
   
 #print(all_tables_data)
-
+athlete_info = {}
+athlete_info['nationality'] = nationality
+athlete_info['birthday'] = birthday
+athlete_info['age'] = age
+athlete_info['achievements'] = achievements_list
+athlete_info['name'] = name
+with open('athlete_info.json', 'w') as json_file:
+    json.dump(athlete_info, json_file, indent=4)
 
 with open('cooper.json', "w") as json_file:
     json.dump(results, json_file,indent=4)
