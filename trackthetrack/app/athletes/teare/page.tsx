@@ -15,6 +15,8 @@ import spotify from "../../../spotify_search_results.json";
 import results from "../../../cooper.json";
 import Spotify from 'react-spotify-embed';
 import Search from '../../../components/Search';
+import athlete_info from '../../../athlete_info.json'
+import Header from '../../../components/Header'
 
 
 const TearePage: React.FC = () => {
@@ -44,23 +46,9 @@ const TearePage: React.FC = () => {
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body>
-    <header className="bg-white dark:bg-zinc-800 p-4 shadow-md flex items-center justify-between">
-  <div className="flex items-center space-x-4">
-    <Image src={logo} alt="Logo" width={128} height={128}/>
-    <span className="text-xl font-bold text-zinc-800 dark:text-white">Track The Track</span>
-  </div>
-  <nav className="flex space-x-4">
-    <a href="/" className="text-zinc-800 dark:text-white hover:text-orange-500">Home</a>
-    <a href="/rankings" className="text-zinc-800 dark:text-white hover:text-orange-500">Rankings</a>
-    <a href="/calendar2" className="text-zinc-800 dark:text-white hover:text-orange-500">Calendar</a>
-    <a href="/about-us" className="text-zinc-800 dark:text-white hover:text-orange-500">About Us</a>
-    <a href="#" className="text-zinc-800 dark:text-white hover:text-orange-500">Athletes</a>
-    <a href="#" className="text-zinc-800 dark:text-white hover:text-orange-500">Teams</a>
-  </nav>
-  <div className="relative">
-  <Search />
-  </div>
-</header>
+  <>
+      <Header />
+    </>
   </body>
       <div className="container mx-auto p-4">
       
@@ -68,8 +56,8 @@ const TearePage: React.FC = () => {
             <Image src={athlete_picture} alt="Athlete Photo" className="w-48 h-48 rounded-full mb-4"/>
 
             <div className="text-center mb-4">
-                <p className="text-xl">Age: 30</p>
-                <p className="text-xl">Hometown: New York</p>
+                <p className="text-xl">Age: {athlete_info['age']}</p>
+                <p className="text-xl">Nationality: {athlete_info['nationality']}</p>
             </div>
             <a href='https://www.instagram.com/cooperteare/' target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
                 Follow on Instagram
@@ -100,7 +88,34 @@ const TearePage: React.FC = () => {
       </button>
    
       </header>
-      
+
+    <div className="bg-blue-500 p-8">
+  <h2 className="text-3xl font-bold mb-6">Honours Summary</h2>
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+    <div className="bg-blue-200 p-4 rounded-lg">
+      <div className="bg-blue-400 h-1 mb-4"></div>
+      <div className="text-4xl font-bold text-blue-600">1x</div>
+      <p className="text-lg font-semibold">Pan American U20 Championships \n Bronze medallist</p>
+    </div>
+    <div className="bg-blue-200 p-4 rounded-lg">
+      <div className="bg-blue-400 h-1 mb-4"></div>
+      <div className="text-4xl font-bold text-blue-600">1x</div>
+      <p className="text-lg font-semibold">NCAA champion</p>
+    </div>
+    <div className="bg-blue-200 p-4 rounded-lg">
+      <div className="bg-blue-400 h-1 mb-4"></div>
+      <div className="text-4xl font-bold text-blue-600">1x</div>
+      <p className="text-lg font-semibold">NCAA Indoor champion</p>
+    </div>
+    <div className="bg-blue-200 p-4 rounded-lg">
+      <div className="bg-blue-400 h-1 mb-4"></div>
+      <div className="text-4xl font-bold text-blue-600">1x</div>
+      <p className="text-lg font-semibold">National champion</p>
+    </div>
+  </div>
+</div>
+
+
       <div>
         {
           events.map((event, index) => (
