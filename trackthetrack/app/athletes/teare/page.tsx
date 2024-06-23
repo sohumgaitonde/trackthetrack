@@ -15,7 +15,7 @@ import spotify from "../../../spotify_search_results.json";
 import results from "../../../cooper.json";
 import Spotify from 'react-spotify-embed';
 import Search from '../../../components/Search';
-import athlete_info from '../../../athlete_info.json'
+import athlete_info from '../../../all_athlete_info.json'
 import Header from '../../../components/Header'
 
 
@@ -56,8 +56,8 @@ const TearePage: React.FC = () => {
             <Image src={athlete_picture} alt="Athlete Photo" className="w-48 h-48 rounded-full mb-4"/>
 
             <div className="text-center mb-4">
-                <p className="text-xl">Age: {athlete_info['age']}</p>
-                <p className="text-xl">Nationality: {athlete_info['nationality']}</p>
+                <p className="text-xl">Age: 24</p>
+                <p className="text-xl">Nationality: {athlete_info['teare']['nationality']}</p>
             </div>
             <a href='https://www.instagram.com/cooperteare/' target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
                 Follow on Instagram
@@ -65,53 +65,20 @@ const TearePage: React.FC = () => {
         </div>
       </div>
 
-      <header className="mb-12">
-        <h1 className="text-5xl font-extrabold text-center text-blue-700 mb-4 w-20">
-        
-          <Link href="/">
-            <button >
-            <Image src={logo} alt="Logo" className="shadow-lg hover:shadow-xl transition-shadow"/>
-            </button>
-          </Link>
-          
-        </h1>
-        <h3 className="text-5xl font-extrabold text-center text-blue-500">
-          {athlete}
-        </h3>
-        <Image src={athlete_picture} alt="Logo" width={128} height={128} />
-        <Image src={team_logo} alt="Logo" width={128} height={128} />
-        
-      <button>
-      <Link href='https://www.instagram.com/cooperteare/'>
-        <Image src={instagram} alt="instagram" width={128} height={128} />
-      </Link>
-      </button>
-   
-      </header>
-
     <div className="bg-blue-500 p-8">
-  <h2 className="text-3xl font-bold mb-6">Honours Summary</h2>
+  <h2 className="text-3xl font-bold mb-6">Achievements</h2>
   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-    <div className="bg-blue-200 p-4 rounded-lg">
-      <div className="bg-blue-400 h-1 mb-4"></div>
-      <div className="text-4xl font-bold text-blue-600">1x</div>
-      <p className="text-lg font-semibold">Pan American U20 Championships \n Bronze medallist</p>
-    </div>
-    <div className="bg-blue-200 p-4 rounded-lg">
-      <div className="bg-blue-400 h-1 mb-4"></div>
-      <div className="text-4xl font-bold text-blue-600">1x</div>
-      <p className="text-lg font-semibold">NCAA champion</p>
-    </div>
-    <div className="bg-blue-200 p-4 rounded-lg">
-      <div className="bg-blue-400 h-1 mb-4"></div>
-      <div className="text-4xl font-bold text-blue-600">1x</div>
-      <p className="text-lg font-semibold">NCAA Indoor champion</p>
-    </div>
-    <div className="bg-blue-200 p-4 rounded-lg">
-      <div className="bg-blue-400 h-1 mb-4"></div>
-      <div className="text-4xl font-bold text-blue-600">1x</div>
-      <p className="text-lg font-semibold">National champion</p>
-    </div>
+    
+      
+      {athlete_info['teare']['achievements'].map((achievement, index) => (
+        <div className="bg-blue-200 p-4 rounded-lg">
+          <div className="bg-blue-400 h-1 mb-4"></div>
+        <div className="text-4xl font-bold text-blue-600">{achievement[Object.keys(achievement)[0]]}</div>
+        <p className="text-lg font-semibold">{Object.keys(achievement)[0]}</p>
+        </div>
+      ))}
+    
+    
   </div>
 </div>
 
@@ -162,13 +129,19 @@ const TearePage: React.FC = () => {
       <div className="flex flex-col items-center">
 
       <div className="flex space-x-4 mb-4">
-      <button
-          onClick={handlePrev}
-          disabled={currentIndex === 0}
-          className="px-4 py-2 bg-blue-500 text-white rounded disabled:opacity-50 h-1/2 my-14"
-        >
-          <FontAwesomeIcon icon={faArrowLeft} size="lg" />
-        </button>
+        {videos.length > 0 ? 
+        <button
+        onClick={handlePrev}
+        disabled={currentIndex === 0}
+        className={`px-4 py-2 bg-blue-500 text-white rounded disabled:opacity-50 my-14 h-1/2`}
+      >
+        <FontAwesomeIcon icon={faArrowLeft} className="lg" />
+      </button>
+      :
+      <>
+      </>
+      }
+      
         {videos.slice(currentIndex, currentIndex + 3).map((video, index) => (
           <div key={index} className="w-full max-w-md">
             <div className="aspect-w-16 aspect-h-9">
@@ -184,13 +157,18 @@ const TearePage: React.FC = () => {
             </div>
           </div>
         ))}
+        {videos.length > 0 ? 
         <button
-          onClick={handleNext}
-          disabled={currentIndex >= videos.length - 3}
-          className="px-4 py-2 bg-blue-500 text-white rounded disabled:opacity-50 h-1/2 my-14"
-        >
-          <FontAwesomeIcon icon={faArrowRight} size="lg" />
-        </button>
+        onClick={handleNext}
+        disabled={currentIndex >= videos.length - 3}
+        className={`px-4 py-2 bg-blue-500 text-white rounded disabled:opacity-50 my-14 h-1/2`}
+      >
+        <FontAwesomeIcon icon={faArrowRight} className="lg" />
+      </button>
+      :
+      <>
+      </>
+      }
       </div>
     </div>
     <div className="container mx-auto p-4">
