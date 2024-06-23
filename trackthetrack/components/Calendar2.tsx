@@ -3,7 +3,7 @@ import dayjs from 'dayjs';
 import advancedFormat from 'dayjs/plugin/advancedFormat';
 dayjs.extend(advancedFormat);
 import Link from 'next/link';
-import eventtest from '../calendar.json';
+import eventtest from '../calendartest.json';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 
@@ -73,7 +73,7 @@ const Calendar = () => {
   };
 
   const getEventsForDate = (date: string) => {
-    return eventtest.filter(event => convertDateString(event.Date) === date);
+    return eventtest.filter(event => event.Date === date);
   };
 
   const renderDays = () => {
@@ -83,7 +83,7 @@ const Calendar = () => {
     }
     for (let day = 1; day <= daysInCurrentMonth; day++) {
       const dateStr = `${currentYear}-${String(currentMonth).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
-      const hasEvent = eventtest.some(event => convertDateString(event.Date) === dateStr);
+      const hasEvent = eventtest.some(event => event.Date === dateStr);
       days.push(
         <div>
             <div
