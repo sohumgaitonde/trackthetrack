@@ -51,6 +51,7 @@ calendar_df4 = pd.read_html(content)[0]
 calendar_df = calendar_df1.append(calendar_df2, ignore_index=True)
 calendar_df = calendar_df.append(calendar_df3, ignore_index=True)
 calendar_df = calendar_df.append(calendar_df4, ignore_index=True)
+            
+calendar_df.to_json('calendartest.json', orient='records')
 
-print(calendar_df.head)
-calendar_df.to_json('calendar.json', orient='records')
+
