@@ -14,6 +14,16 @@ interface Event {
   description: string;
   link: string;
 }
+const eventShading = (input: string): string => {
+  return category[input]
+}
+const category: { [key: string]: string } = {
+  'OW': 'bg-blue-800',
+  'DF': 'bg-blue-600',
+  'GW': 'bg-blue-400',
+  'GL': 'bg-blue-200',
+  'A': 'bg-blue-100',
+};
 const convertDateString = (input: string): string => {
   const months: { [key: string]: string } = {
     'JAN': '01',
@@ -83,12 +93,14 @@ const Calendar = () => {
     }
     for (let day = 1; day <= daysInCurrentMonth; day++) {
       const dateStr = `${currentYear}-${String(currentMonth).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+      const events = eventtest.filter(event => event.Date === dateStr);
       const hasEvent = eventtest.some(event => event.Date === dateStr);
+      const categoryClass = hasEvent ? eventShading(events[0]['Cat.']) : 'bg-white';
       days.push(
         <div>
             <div
           key={day}
-          className={`max-w-5xl w-full p-8 rounded-lg shadow-lg h-24 flex items-center justify-center border cursor-pointer ${hasEvent ? 'bg-blue-100' : 'bg-white'}`}
+          className={`max-w-5xl w-full p-8 rounded-lg shadow-lg h-24 flex items-center justify-center border cursor-pointer ${categoryClass}`}
           onClick={() => handleClickDate(dateStr)}
         >
           <div>
