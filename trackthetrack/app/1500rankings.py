@@ -52,7 +52,7 @@ def get_dates(soup):
   
 
 def top20_scrape():
-    html= requests.get('https://worldathletics.org/records/toplists/middlelong/1500-metres/all/men/senior/2024?regionType=countries&region=usa&page=1&bestResultsOnly=true&maxResultsByCountry=all&eventId=10229502&ageCategory=senior')
+    html= requests.get('https://worldathletics.org/records/toplists/middlelong/1500-metres/all/men/senior/2024?regionType=world&page=1&bestResultsOnly=true&maxResultsByCountry=all&eventId=10229502&ageCategory=senior')
     if html.status_code != 200:
         raise Exception ('error {}'.format(html))
     soup = bs(html.text, 'lxml')
