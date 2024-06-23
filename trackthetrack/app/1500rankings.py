@@ -53,7 +53,7 @@ def get_nationalities(soup):
     td_tags = soup.find_all('td', {'data-th' : "Nat"})
     nationalities = []
     for tag in td_tags:
-      nationalities.append(tag.img['src'])
+      nationalities.append(tag.text.strip())
       nationalities = nationalities[0:20]
     return nationalities
   

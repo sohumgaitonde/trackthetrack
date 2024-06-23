@@ -6,6 +6,21 @@ import 'tailwindcss/tailwind.css';
 import Image from 'next/image';
 import athletes from '../../1500m.json';
 import Header from '../../components/Header'
+import { flags } from "../assets/flags/flags";
+
+const NOR = require(".//../assets/flags/NOR.png");
+const AUS = require("../assets/flags/AUS.png");
+const BEL = require("../assets/flags/BEL.png");
+const USA = require("../assets/flags/USA.png");
+const GBR = require("../assets/flags/GBR.png");
+const IRL = require("../assets/flags/IRL.png");
+const ESP = require("../assets/flags/ESP.png");
+const FRA = require("../assets/flags/FRA.png");
+const RSA = require("../assets/flags/RSA.png");
+const KEN = require("../assets/flags/KEN.png");
+const ETH = require("../assets/flags/ETH.png");
+const ITA = require("../assets/flags/ITA.png");
+const POR = require("../assets/flags/POR.png");
 
 const nike = require('../assets/teams/nike.png');
 const on = require('../assets/teams/on.png');
@@ -130,7 +145,7 @@ const Ranking2Page: React.FC = () => {
               <button key={index} className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow h-40 min-w-full">
               <h2 className="text-2xl font-semibold text-blue-700">{athlete.Athlete[0]}</h2>
               <p className="text-gray-600 mt-2">{athlete.Mark}</p>
-              <p className="text-gray-600 mt-2">{athlete.Nationality}</p>
+              <Image src={`/flags/${athlete.Nationality}.png`} alt="Team" className='w-8' width={8} height={8}/>
               
             </button>
             </Link>
