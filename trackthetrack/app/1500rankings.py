@@ -49,6 +49,13 @@ def get_dates(soup):
       dates.append(tag.text.strip())
       dates = dates[0:20]
     return dates
+def get_nationalities(soup):
+    td_tags = soup.find_all('td', {'data-th' : "Nat"})
+    nationalities = []
+    for tag in td_tags:
+      nationalities.append(tag.img['src'])
+      nationalities = nationalities[0:20]
+    return nationalities
   
 
 def top20_scrape():
@@ -61,7 +68,8 @@ def top20_scrape():
     'Athlete':get_names(soup),
     'Mark':get_times(soup),
     'Venue':get_venues(soup),
-    'Date':get_dates(soup)
+    'Date':get_dates(soup),
+    'Nationality':get_nationalities(soup)
     }
     return pd.DataFrame(athletics_dict)
 

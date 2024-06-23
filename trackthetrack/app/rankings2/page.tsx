@@ -130,7 +130,7 @@ const Ranking2Page: React.FC = () => {
               <button key={index} className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow h-40 min-w-full">
               <h2 className="text-2xl font-semibold text-blue-700">{athlete.Athlete[0]}</h2>
               <p className="text-gray-600 mt-2">{athlete.Mark}</p>
-              
+              <p className="text-gray-600 mt-2">{athlete.Nationality}</p>
               
             </button>
             </Link>
