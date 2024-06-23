@@ -33,9 +33,9 @@ const CalendarPage = () => {
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center">
       
-    <>
+    
       <Header />
-    </>
+    
       <Calendar />
       <h1 className="text-black font-mono"> Did we miss a meet? Submit the meet name here and we'll be sure to add it!</h1>
       <form onSubmit={handleSubmit} className="mb-4">
