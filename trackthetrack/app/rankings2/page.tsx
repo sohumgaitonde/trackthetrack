@@ -8,7 +8,7 @@ import athletes from '../../1500m.json';
 import Header from '../../components/Header'
 import { flags } from "../assets/flags/flags";
 
-const NOR = require(".//../assets/flags/NOR.png");
+const NOR = require("../assets/flags/NOR.png");
 const AUS = require("../assets/flags/AUS.png");
 const BEL = require("../assets/flags/BEL.png");
 const USA = require("../assets/flags/USA.png");
