@@ -1,9 +1,13 @@
 import Link from 'next/link';
 import React, { useState, useEffect} from 'react';
+import athletes1500 from '../1500m.json';
 
+const getUniqueAthleteNames = (data: { Athlete: string[]; Mark: string; Venue: string; Date: string; Nationality: string;  }[]): string[] => {
+  const names = data.map(record => record.Athlete[0]);
+  return Array.from(new Set(names));
+};
 
-
-const athletes = [
+const athletes1 = [
   { name: 'Cooper Teare', path: '/athletes/teare' },
   { name: 'Yared Nuguse', path: '/athletes/nuguse' },
   { name: 'Hobbs Kessler', path: '/athletes/kessler' },
@@ -15,12 +19,12 @@ const athletes = [
 
 const Search = () => {
   const [query, setQuery] = useState('');
-  const [filteredAthletes, setFilteredAthletes] = useState([{}]);
-
+  const [filteredAthletes, setFilteredAthletes] = useState<string[]>([]);
+  const athletes = getUniqueAthleteNames(athletes1500);
   useEffect(() => {
     if (query) {
       const filtered = athletes.filter(athlete =>
-        athlete.name.toLowerCase().includes(query.toLowerCase())
+        athlete.toLowerCase().includes(query.toLowerCase())
       );
       setFilteredAthletes(filtered);
     } else {
@@ -35,10 +39,12 @@ const Search = () => {
   const handleKeyDown = (event) => {
     if (event.key === 'Enter' && filteredAthletes.length > 0) {
       const firstAthlete = filteredAthletes[0];
-      const firstName = firstAthlete.name.split(" ")[1].toLowerCase();
+      const firstName = firstAthlete.split(" ")[1].toLowerCase();
       window.location.href = `/athletes/${encodeURIComponent(firstName)}`;
     }
   };
+
+  
   
 
   return (
@@ -54,10 +60,10 @@ const Search = () => {
       {query && (
         <ul className="absolute z-10 w-full bg-white border border-gray-300 rounded mt-1 max-h-60 overflow-y-auto">
           {filteredAthletes.map((athlete, index) => (
-            <li key={athlete.name} className="p-2 cursor-pointer hover:bg-gray-200">
-              <Link href={`/athletes/${encodeURIComponent(athlete.name.split(" ")[1].toLowerCase())}`}>
+            <li key={athlete} className="p-2 cursor-pointer hover:bg-gray-200">
+              <Link href={`/athletes/${encodeURIComponent(athlete.split(" ")[1].toLowerCase())}`}>
                 <button>
-                {athlete.name}
+                {athlete}
                 </button>
               </Link>
             </li>
