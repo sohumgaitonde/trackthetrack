@@ -4,7 +4,10 @@ import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
 import 'tailwindcss/tailwind.css';
 import Image from 'next/image';
-import athletes from '../../1500m.json';
+import athletes800 from '../../800m.json';
+import athletes1500 from '../../1500m.json';
+import athletes5000 from '../../5000m.json';
+import athletes10000 from '../../10000m.json';
 import Header from '../../components/Header'
 import { flags } from "../assets/flags/flags";
 
@@ -35,12 +38,18 @@ const events = [
   "1500m",
   "5000m",
   "10000m",
-  "Marathon",
-  "110m Hurdles",
-  "400m Hurdles",
-  "3000m Steeplechase",
+  
   
 ];
+const competitorsData: Record<string, {Athlete: string[], Mark: string, Venue: string, Date: string, Nationality: string}[]> = {
+  "800m": athletes800,
+  "1500m": athletes1500,
+  "5000m": athletes5000,
+  "10000m": athletes10000,
+}
+{/* 
+
+
 
 const competitorsData: Record<string, { name: string; info: string, team: string }[]> = {
   
@@ -96,6 +105,7 @@ const competitorsData: Record<string, { name: string; info: string, team: string
     // ...more competitors
   ],
 };
+*/}
 const Ranking2Page: React.FC = () => {
   const [selectedEvent, setSelectedEvent] = useState(events[0]);
   const [competitors, setCompetitors] = useState(competitorsData[events[0]]);
@@ -104,7 +114,7 @@ const Ranking2Page: React.FC = () => {
     setmyBool(false)
   }
   var competitor = competitors[0];
-  var link = `athletes/${competitor.name.split(" ")[1]}`;
+  var link = `athletes/${competitor.Athlete[0].split(" ")[1]}`;
 
   useEffect(() => {
     setCompetitors(competitorsData[selectedEvent]);
@@ -139,7 +149,7 @@ const Ranking2Page: React.FC = () => {
 
       <section>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {athletes.map((athlete, index) => (
+          {competitors.map((athlete, index) => (
             
             <Link href={`/athletes/${encodeURIComponent(athlete.Athlete[0].split(" ")[1].toLowerCase())}`}>
               <button key={index} className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow h-40 min-w-full">
