@@ -10,6 +10,7 @@ import athletes5000 from '../../5000m.json';
 import athletes10000 from '../../10000m.json';
 import Header from '../../components/Header'
 import { flags } from "../assets/flags/flags";
+import norway from '../assets/flags/NOR.png';
 
 const NOR = require("../assets/flags/NOR.png");
 const AUS = require("../assets/flags/AUS.png");
