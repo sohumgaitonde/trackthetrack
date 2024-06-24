@@ -38,6 +38,18 @@ const TearePage: React.FC = () => {
     setCurrentIndex((prevIndex) => Math.min(prevIndex + 3, videos.length - 3));
   };
 
+
+
+  const [showAllEvents, setShowAllEvents] = useState(false);
+
+  const toggleShowAllEvents = () => {
+    setShowAllEvents(!showAllEvents);
+  };
+  
+  const initialEventCount = 2;
+
+  const displayedEvents = showAllEvents ? events : events.slice(0, initialEventCount);
+
   return (
     <div className="min-h-screen bg-gray-100 p-6">
       <head>
@@ -83,48 +95,46 @@ const TearePage: React.FC = () => {
 </div>
 
 
-      <div>
-        {
-          events.map((event, index) => (
-            <div key={index} className="w-full min-w-lg">
-              <div className="bg-black text-white p-2 text-lg font-bold mt-4 min-w-full">{event}</div>
-              <div>
-              <table className="w-full text-left">
+<div>
+      {displayedEvents.map((event, eventIndex) => (
+        <div key={eventIndex} className="w-full min-w-lg">
+          <div className="bg-black text-white p-2 text-lg font-bold mt-4 min-w-full">{event}</div>
+          <div>
+            <table className="w-full text-left">
               <thead className="w-full bg-blue-400 text-white">
-              <tr>
-              {result_columns.map((column, index) => (
-                <th className="p-2">{column}</th>
-              ))}
-              </tr>
-              </thead>
-
-              <tbody>
-              
-                
-              {
-                results[event].map((result, index) => (
-                  <tr className={`${even(index) ? 'bg-white' : 'bg-gray-200'}`}>
-                    {result_columns.map((col, index) => (
-                    <>
-                      <td className="p-2">{result[col]}</td>
-                    </>
+                <tr>
+                  {result_columns.map((column, colIndex) => (
+                    <th key={colIndex} className="p-2">{column}</th>
                   ))}
+                </tr>
+              </thead>
+              <tbody>
+                {results[event].map((result, resultIndex) => (
+                  <tr key={resultIndex} className={`${resultIndex % 2 === 0 ? 'bg-white' : 'bg-gray-200'}`}>
+                    {result_columns.map((col, colIndex) => (
+                      <td key={colIndex} className="p-2">{result[col]}</td>
+                    ))}
                   </tr>
-                  
-              ))
-              }
-              
+                ))}
               </tbody>
-              </table>
-              </div>
-              
+            </table>
+          </div>
+        </div>
+      ))}
+      {events.length > initialEventCount && (
+        <button
+          onClick={toggleShowAllEvents}
+          className="bg-blue-500 text-white px-4 py-2 rounded mt-2"
+        >
+          {showAllEvents ? 'Show Less' : 'See More'}
+        </button>
+      )}
+    </div>
 
-              
-            </div>
+    <div className="h-8">
+      
 
-          ))
-        }
-      </div>
+    </div>
       
       <div className="flex flex-col items-center">
 
