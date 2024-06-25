@@ -31,13 +31,44 @@ const HomePage: React.FC = () => {
     <>
     <Header />
     </>
-            <header className="mb-12">
+      <header className="mb-12">
       <h1 className="text-8xl font- text-center text-blue-700 mb-4">
       Track the Track </h1>
       <h2 className="text-4xl font-mono text-center text-blue-500">
         Road to the Olympics ꈨ
       </h2>
       </header>
+      <section>
+        <div className='text-center'>
+          Description of the website
+        </div>
+        <div className='text-center'>
+          Goals
+        </div>
+        <div className='text-center'>
+          How it works
+        </div>
+
+      </section>
+
+      <section className="flex items-center justify-center bg-gray-100 min-h-20">
+        <div className="w-3/4">
+          <div className='h-24 border'>
+            Popular athletes
+          </div>
+          <div className='h-24 border'>
+            Upcoming events
+          </div>
+        </div>
+        <div className="w-1/4 h-48 border">
+          Rankings Preview
+        </div>
+
+      </section>
+
+
+
+
       <section className="flex items-center justify-center bg-gray-100 min-h-20">
         <div className="flex space-x-4">
           
