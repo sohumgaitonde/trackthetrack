@@ -21,6 +21,10 @@ import Link from 'next/link';
 import wanyonyi from './assets/athletes/wanyonyi.jpeg';
 import ingebrigtsen from './assets/athletes/ingebrigtsen.jpeg';
 import fisher from './assets/athletes/fisher.jpg';
+import dayjs from 'dayjs';
+import advancedFormat from 'dayjs/plugin/advancedFormat';
+dayjs.extend(advancedFormat);
+import calendarPreview from '../calendartest.json';
 
 
 
@@ -33,6 +37,21 @@ const HomePage: React.FC = () => {
     setmyBool(true)
   }
   const component = myBool ? <Ranking/> : <Calendar/>
+
+  const [upcomingEvents, setUpcomingEvents] = useState([]);
+
+  useEffect(() => {
+    // Get today's date
+    const today = dayjs();
+
+    // Filter and sort events by date
+    const filteredEvents = calendarPreview
+      .filter(event => dayjs(event.Date).isAfter(today))
+      .sort((a, b) => dayjs(a.Date).diff(dayjs(b.Date)));
+
+    // Get the next two upcoming events
+    setUpcomingEvents(filteredEvents.slice(0, 2));
+  }, []);
   
 
   return (
@@ -63,7 +82,7 @@ const HomePage: React.FC = () => {
 
       <section className="flex items-center justify-center bg-gray-100">
         <div className="w-3/4">
-          <div className='h-72 border'>
+          <div className='h-76 border p-2'>
             <div className='text-center text-2xl font-bold mb-1'> 
             Popular Athletes
             </div>
@@ -99,9 +118,28 @@ const HomePage: React.FC = () => {
           
         </div>
           </div>
-          <div className='h-24 border'>
-            Upcoming events
+
+
+          <div className='items-center justify-center'>
+          <h2 className='text-center font-bold'>Upcoming Events</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 items-center text-center">
+          {upcomingEvents.length > 0 ? (
+          upcomingEvents.map((event, index) => (
+          <div key={index} className="event bg-white rounded-lg">
+            <h3 className="font-bold">{event['Name']}</h3>
+            <p>{dayjs(event['Date']).format('MMMM D, YYYY')}</p>
+            <p>Venue: {event['Venue']}</p>
+            <p>Competition Group: {event['Competition Group']}</p>
           </div>
+          ))
+          ) : (
+          <p>No upcoming events.</p>
+          )}
+          </div>
+          
+          </div>
+
+
         </div>
 
         <div className="w-1/4 items-center justify-center">
