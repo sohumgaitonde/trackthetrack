@@ -56,8 +56,38 @@ const HomePage: React.FC = () => {
 
       <section className="flex items-center justify-center bg-gray-100 min-h-20">
         <div className="w-3/4">
-          <div className='h-24 border'>
-            Popular athletes
+          <div className='h-48 border'>
+            <div className='text-center text-2xl font-bold mb-1'> 
+            Popular Athletes
+            </div>
+          
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
+          
+            
+            <Link href={`/athletes/${encodeURIComponent(rankings[0].Athlete[0].split(" ")[1].toLowerCase())}`}>
+              <button className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow h-40 min-w-full">
+              <h2 className="text-2xl font-semibold text-blue-700">{rankings[0].Athlete[0]}</h2>
+              <p className="text-gray-600 mt-2">{rankings[0].Mark}</p>
+              <Image src={`/flags/${rankings[0].Nationality}.png`} alt="Team" className='w-8' width={8} height={8}/>
+            </button>
+            </Link>
+
+            <Link href={`/athletes/${encodeURIComponent(rankings[1].Athlete[0].split(" ")[1].toLowerCase())}`}>
+              <button className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow h-40 min-w-full">
+              <h2 className="text-2xl font-semibold text-blue-700">{rankings[1].Athlete[0]}</h2>
+              <p className="text-gray-600 mt-2">{rankings[1].Mark}</p>
+              <Image src={`/flags/${rankings[1].Nationality}.png`} alt="Team" className='w-8' width={8} height={8}/>
+            </button>
+            </Link>
+            <Link href={`/athletes/${encodeURIComponent(rankings[9].Athlete[0].split(" ")[1].toLowerCase())}`}>
+              <button className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow h-40 min-w-full">
+              <h2 className="text-2xl font-semibold text-blue-700">{rankings[9].Athlete[0]}</h2>
+              <p className="text-gray-600 mt-2">{rankings[9].Mark}</p>
+              <Image src={`/flags/${rankings[9].Nationality}.png`} alt="Team" className='w-8' width={8} height={8}/>
+            </button>
+            </Link>
+          
+        </div>
           </div>
           <div className='h-24 border'>
             Upcoming events
