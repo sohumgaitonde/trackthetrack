@@ -15,6 +15,7 @@ url1 = 'https://worldathletics.org/competition/calendar-results?endDate=2024-12-
 url2 = 'https://worldathletics.org/competition/calendar-results?endDate=2024-12-30&disciplineId=5&rankingCategoryId=5&startDate=2024-01-01'
 url3 = 'https://worldathletics.org/competition/calendar-results?endDate=2024-12-30&disciplineId=5&rankingCategoryId=11&startDate=2024-01-01'
 url4 = 'https://worldathletics.org/competition/calendar-results?endDate=2024-12-30&disciplineId=5&rankingCategoryId=4&startDate=2024-01-01'
+url5 = 'https://worldathletics.org/competition/calendar-results?endDate=2024-12-31&disciplineId=5&rankingCategoryId=2&startDate=2024-01-01'
 
 import chromedriver_autoinstaller
 # setup chrome options
@@ -48,9 +49,16 @@ driver.get(url4)
 content = driver.page_source
 calendar_df4 = pd.read_html(content)[0]
 
+html = requests.get(url5)
+soup = bs(html.text, 'lxml')
+driver.get(url5)
+content = driver.page_source
+calendar_df5 = pd.read_html(content)[0]
+
 calendar_df = calendar_df1.append(calendar_df2, ignore_index=True)
 calendar_df = calendar_df.append(calendar_df3, ignore_index=True)
 calendar_df = calendar_df.append(calendar_df4, ignore_index=True)
+calendar_df = calendar_df.append(calendar_df5, ignore_index=True)
 def convert_date_string(input: str) -> list:
     months = {
         'JAN': '01',

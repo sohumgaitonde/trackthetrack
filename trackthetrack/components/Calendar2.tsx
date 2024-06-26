@@ -18,11 +18,11 @@ const eventShading = (input: string): string => {
   return category[input]
 }
 const category: { [key: string]: string } = {
-  'OW': 'bg-blue-800',
-  'DF': 'bg-blue-600',
-  'GW': 'bg-blue-400',
-  'GL': 'bg-blue-200',
-  'A': 'bg-blue-100',
+  'OW': 'bg-red-500',
+  'DF': 'bg-yellow-500',
+  'GW': 'bg-purple-500',
+  'A': 'bg-green-500',
+  'B': 'bg-blue-500'
 };
 const convertDateString = (input: string): string => {
   const months: { [key: string]: string } = {
@@ -100,7 +100,7 @@ const Calendar = () => {
         <div>
             <div
           key={day}
-          className={`max-w-5xl w-full p-8 rounded-lg shadow-lg h-24 flex items-center justify-center border cursor-pointer ${categoryClass}`}
+          className={`w-full p-8 rounded-lg shadow-lg h-24 flex items-center justify-center border cursor-pointer ${categoryClass}`}
           onClick={() => handleClickDate(dateStr)}
         >
           <div>
@@ -134,6 +134,25 @@ const Calendar = () => {
         ))}
         {renderDays()}
       </div>
+      <section className="p-2">
+        <div className="flex grid grid-cols-5 ">
+          <div className="bg-red-500 rounded-md m-1">
+            Olympic Games
+          </div>
+          <div className="bg-yellow-500 rounded-md m-1">
+            Diamond League Final
+          </div>
+          <div className="bg-purple-500 rounded-md m-1">
+            Diamond League Meet
+          </div>
+          <div className="bg-green-500 rounded-md m-1">
+            Continental Tour Meets
+          </div>
+          <div className="bg-blue-500 rounded-md m-1">
+            National Championships
+          </div>
+        </div>
+      </section>
       {selectedDate && (
         <div className="mt-4 p-4 border rounded bg-white">
           <h3 className="text-xl font-bold">Events on {dayjs(selectedDate).format('MMMM D, YYYY')}</h3>
