@@ -13,8 +13,19 @@ import adidas from './assets/teams/adidas.png';
 import none from './assets/teams/none.png';
 import Search from '../components/Search';
 import Header from '../components/Header';
-import rankings from '../1500m.json';
+import rankings1500 from '../1500m.json';
+import rankings800 from '../800m.json';
+import rankings5000 from '../5000m.json';
+import rankings10000 from '../10000m.json';
 import Link from 'next/link';
+import wanyonyi from './assets/athletes/wanyonyi.jpeg';
+import ingebrigtsen from './assets/athletes/ingebrigtsen.jpeg';
+import fisher from './assets/athletes/fisher.jpg';
+import dayjs from 'dayjs';
+import advancedFormat from 'dayjs/plugin/advancedFormat';
+dayjs.extend(advancedFormat);
+import calendarPreview from '../calendartest.json';
+
 
 
 const HomePage: React.FC = () => {
@@ -26,7 +37,22 @@ const HomePage: React.FC = () => {
     setmyBool(true)
   }
   const component = myBool ? <Ranking/> : <Calendar/>
-  const rankingsPreview = rankings[0];
+
+  const [upcomingEvents, setUpcomingEvents] = useState([]);
+
+  useEffect(() => {
+    // Get today's date
+    const today = dayjs();
+
+    // Filter and sort events by date
+    const filteredEvents = calendarPreview
+      .filter(event => dayjs(event.Date).isAfter(today))
+      .sort((a, b) => dayjs(a.Date).diff(dayjs(b.Date)));
+
+    // Get the next two upcoming events
+    setUpcomingEvents(filteredEvents.slice(0, 2));
+  }, []);
+  
 
   return (
     <div className="min-h-screen bg-gray-100 p-6">
@@ -54,9 +80,9 @@ const HomePage: React.FC = () => {
 
       </section>
 
-      <section className="flex items-center justify-center bg-gray-100 min-h-20">
+      <section className="flex items-center justify-center bg-gray-100">
         <div className="w-3/4">
-          <div className='h-48 border'>
+          <div className='h-76 border p-2'>
             <div className='text-center text-2xl font-bold mb-1'> 
             Popular Athletes
             </div>
@@ -64,43 +90,65 @@ const HomePage: React.FC = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
           
             
-            <Link href={`/athletes/${encodeURIComponent(rankings[0].Athlete[0].split(" ")[1].toLowerCase())}`}>
-              <button className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow h-40 min-w-full">
-              <h2 className="text-2xl font-semibold text-blue-700">{rankings[0].Athlete[0]}</h2>
-              <p className="text-gray-600 mt-2">{rankings[0].Mark}</p>
-              <Image src={`/flags/${rankings[0].Nationality}.png`} alt="Team" className='w-8' width={8} height={8}/>
+            <Link href={`/athletes/${encodeURIComponent(rankings1500[0].Athlete[0].split(" ")[1].toLowerCase())}`}>
+              <button className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow h-64 min-w-full">
+                <Image alt='ingebrigtsen' src={ingebrigtsen} className="min-w-full h-40 rounded-lg"/>
+              <h2 className="text-2xl font-semibold text-blue-700">{rankings1500[0].Athlete[0]}</h2>
+              
+              <Image src={`/flags/${rankings1500[0].Nationality}.png`} alt="Team" className='w-8' width={8} height={8}/>
             </button>
             </Link>
 
-            <Link href={`/athletes/${encodeURIComponent(rankings[1].Athlete[0].split(" ")[1].toLowerCase())}`}>
-              <button className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow h-40 min-w-full">
-              <h2 className="text-2xl font-semibold text-blue-700">{rankings[1].Athlete[0]}</h2>
-              <p className="text-gray-600 mt-2">{rankings[1].Mark}</p>
-              <Image src={`/flags/${rankings[1].Nationality}.png`} alt="Team" className='w-8' width={8} height={8}/>
+            <Link href={`/athletes/${encodeURIComponent(rankings5000[9].Athlete[0].split(" ")[1].toLowerCase())}`}>
+              <button className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow h-64 min-w-full">
+              <Image alt='fisher' src={fisher} className="min-w-full h-40 rounded-lg"/>
+              <h2 className="text-2xl font-semibold text-blue-700">{rankings5000[9].Athlete[0]}</h2>
+              
+              <Image src={`/flags/${rankings5000[9].Nationality}.png`} alt="Team" className='w-8' width={8} height={8}/>
             </button>
             </Link>
-            <Link href={`/athletes/${encodeURIComponent(rankings[9].Athlete[0].split(" ")[1].toLowerCase())}`}>
-              <button className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow h-40 min-w-full">
-              <h2 className="text-2xl font-semibold text-blue-700">{rankings[9].Athlete[0]}</h2>
-              <p className="text-gray-600 mt-2">{rankings[9].Mark}</p>
-              <Image src={`/flags/${rankings[9].Nationality}.png`} alt="Team" className='w-8' width={8} height={8}/>
+            <Link href={`/athletes/${encodeURIComponent(rankings800[0].Athlete[0].split(" ")[1].toLowerCase())}`}>
+              <button className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow h-64 min-w-full">
+              <Image alt='wanyonyi' src={wanyonyi} className="min-w-full h-40 rounded-lg"/>
+              <h2 className="text-2xl font-semibold text-blue-700">{rankings800[0].Athlete[0]}</h2>
+              
+              <Image src={`/flags/${rankings800[0].Nationality}.png`} alt="Team" className='w-8' width={8} height={8}/>
             </button>
             </Link>
           
         </div>
           </div>
-          <div className='h-24 border'>
-            Upcoming events
+
+
+          <div className='items-center justify-center'>
+          <h2 className='text-center font-bold'>Upcoming Events</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 items-center text-center">
+          {upcomingEvents.length > 0 ? (
+          upcomingEvents.map((event, index) => (
+          <div key={index} className="event bg-white rounded-lg">
+            <h3 className="font-bold">{event['Name']}</h3>
+            <p>{dayjs(event['Date']).format('MMMM D, YYYY')}</p>
+            <p>Venue: {event['Venue']}</p>
+            <p>Competition Group: {event['Competition Group']}</p>
           </div>
+          ))
+          ) : (
+          <p>No upcoming events.</p>
+          )}
+          </div>
+          
+          </div>
+
+
         </div>
 
-        <div className="w-1/4 h-60 items-center justify-center">
+        <div className="w-1/4 items-center justify-center">
           <div className='text-2xl font-bold text-center'>
           1500m Rankings
           </div>
           
           <div>
-          {rankings.slice(0, 3).map((athlete, index) => (
+          {rankings1500.slice(0, 3).map((athlete, index) => (
             
             <Link href={`/athletes/${encodeURIComponent(athlete.Athlete[0].split(" ")[1].toLowerCase())}`}>
               <button key={index} className="bg-white p-2 m-1 rounded-lg shadow-lg hover:shadow-xl transition-shadow h-20 min-w-full">
@@ -119,29 +167,6 @@ const HomePage: React.FC = () => {
         </div>
 
       </section>
-
-
-
-
-      <section className="flex items-center justify-center bg-gray-100 min-h-20">
-        <div className="flex space-x-4">
-          
-          <button className='block p-2 border rounded-lg bg-white shadow-sm text-gray-700 focus:ring-blue-500 focus:border-blue-500 shadow-lg hover:shadow-xl transition-shadow' id="Calendar" onClick={calendar}>
-            Calendar
-          </button>
-          <button className='block p-2 border rounded-lg bg-white shadow-sm text-gray-700 focus:ring-blue-500 focus:border-blue-500 shadow-lg hover:shadow-xl transition-shadow' id="Rankings" onClick={ranking}>
-            Rankings
-          </button>
-        </div>
-        
-      </section>
-      <div className="flex flex-col items-center justify-center p-4">
-      <h1 className="text-2xl font-bold mb-4 h-8">Search for an Athlete</h1>
-      <Search />
-      </div>
-      <div>
-        {component}
-      </div>
     
     </div>
   );
