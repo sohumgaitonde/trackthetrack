@@ -18,11 +18,11 @@ const eventShading = (input: string): string => {
   return category[input]
 }
 const category: { [key: string]: string } = {
-  'OW': 'bg-blue-800',
-  'DF': 'bg-blue-600',
-  'GW': 'bg-blue-400',
-  'GL': 'bg-blue-200',
-  'A': 'bg-blue-100',
+  'OW': 'bg-red-500',
+  'DF': 'bg-yellow-500',
+  'GW': 'bg-purple-500',
+  'A': 'bg-green-500',
+  'B': 'bg-blue-500'
 };
 const convertDateString = (input: string): string => {
   const months: { [key: string]: string } = {
