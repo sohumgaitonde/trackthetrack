@@ -13,6 +13,8 @@ import adidas from './assets/teams/adidas.png';
 import none from './assets/teams/none.png';
 import Search from '../components/Search';
 import Header from '../components/Header';
+import rankings from '../1500m.json';
+import Link from 'next/link';
 
 
 const HomePage: React.FC = () => {
@@ -24,6 +26,7 @@ const HomePage: React.FC = () => {
     setmyBool(true)
   }
   const component = myBool ? <Ranking/> : <Calendar/>
+  const rankingsPreview = rankings[0];
 
   return (
     <div className="min-h-screen bg-gray-100 p-6">
@@ -60,8 +63,29 @@ const HomePage: React.FC = () => {
             Upcoming events
           </div>
         </div>
-        <div className="w-1/4 h-48 border">
-          Rankings Preview
+
+        <div className="w-1/4 h-60 items-center justify-center">
+          <div className='text-2xl font-bold text-center'>
+          1500m Rankings
+          </div>
+          
+          <div>
+          {rankings.slice(0, 3).map((athlete, index) => (
+            
+            <Link href={`/athletes/${encodeURIComponent(athlete.Athlete[0].split(" ")[1].toLowerCase())}`}>
+              <button key={index} className="bg-white p-2 m-1 rounded-lg shadow-lg hover:shadow-xl transition-shadow h-20 min-w-full">
+              <h2 className="text-xl font-semibold text-blue-700">{athlete.Athlete[0]}</h2>
+              <p className="text-gray-600 mt-2">{athlete.Mark}</p>
+            </button>
+            </Link>
+          ))}
+          </div>
+          <div className='text-center items-center justify-center text-white'>
+          <Link href='/rankings2' className='bg-blue-600 rounded-lg shadow-lg hover:shadow-xl transition-shadow w-28 p-1'>
+            See Full Rankings
+          </Link>
+          </div>
+          
         </div>
 
       </section>
