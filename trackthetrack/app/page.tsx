@@ -80,7 +80,7 @@ const HomePage: React.FC = () => {
 
       </section>
 
-      <section className="flex items-center justify-center bg-gray-100">
+      <section className="flex bg-gray-100">
         <div className="w-3/4">
           <div className='h-76 border p-2'>
             <div className='text-center text-2xl font-bold mb-1'> 
@@ -120,7 +120,7 @@ const HomePage: React.FC = () => {
           </div>
 
 
-          <div className='items-center justify-center'>
+          <div className='items-center justify-center border'>
           <h2 className='text-center font-bold'>Upcoming Events</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 items-center text-center">
           {upcomingEvents.length > 0 ? (
@@ -142,8 +142,8 @@ const HomePage: React.FC = () => {
 
         </div>
 
-        <div className="w-1/4 items-center justify-center">
-          <div className='text-2xl font-bold text-center'>
+        <div className="w-1/4 border">
+          <div className='text-2xl font-bold text-center grow'>
           1500m Rankings
           </div>
           
