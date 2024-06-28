@@ -123,6 +123,7 @@ for i in range(len(profile_links)):
   test = driver.find_elements(By.CLASS_NAME, 'profileBasicInfo_statValue__IXJTW')
   nationality = test[0].text
   print(test[0].text)
+  age = test[3].text
   
   '''
   personal_info = driver.find_elements(By.CLASS_NAME, "profileBasicInfo_stats__RB2La")
@@ -211,6 +212,7 @@ for i in range(len(profile_links)):
   indiv_info['achievements'] = achievements_list
   indiv_info['results'] = all_tables_data
   indiv_info['name'] = full_name
+  indiv_info['age'] = age
   athlete_info[last_name.text.lower()] = indiv_info
   print(indiv_info)
 print(athlete_info)

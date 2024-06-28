@@ -21,7 +21,7 @@ import Header from '../../../components/Header'
 
 const TearePage: React.FC = () => {
   const athlete = 'Cooper Teare';
-  const videos = youtube[athlete];
+  const videos = youtube['Cooper TEARE'];
   const events = Object.keys(results);
   const result_columns = Object.keys(results[events[0]][0]);
   const [currentIndex, setCurrentIndex] = useState(0);

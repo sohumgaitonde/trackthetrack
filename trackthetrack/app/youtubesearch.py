@@ -10,7 +10,7 @@ output = 'youtube_results.json'
 
 all_results = {}
 
-def search_videos(query, max_results = 6):
+def search_videos(query, max_results = 10):
   search_response = youtube.search().list(
       q=query,
       part='snippet',
@@ -29,11 +29,32 @@ def search_videos(query, max_results = 6):
     videos.append(video_info)
 
   return videos
+athletes = []
+f = open('1500m.json')
+data1500 = json.load(f)
+for i in range(len(data1500)):
+  athletes.append(data1500[i]['Athlete'][0])
+f.close()
+f = open('800m.json')
+data800 = json.load(f)
+for i in range(len(data800)):
+  athletes.append(data800[i]['Athlete'][0])
+f.close()
+f = open('5000m.json')
+data5000 = json.load(f)
+for i in range(len(data5000)):
+  athletes.append(data5000[i]['Athlete'][0])
+f.close()
+f = open('10000m.json')
+data10000 = json.load(f)
+for i in range(len(data10000)):
+  athletes.append(data10000[i]['Athlete'][0])
+f.close()
+print(len(athletes))
 
-athletes = ['Cooper Teare', 'Yared Nuguse', 'Hobbs Kessler', 'Colin Sahlman', 'Nico Young', 'Nathan Green', 'Abdisa Fayisa']
 add_on = 'Interview Workout'
 for indiv in athletes:
-  query = str(indiv) + " " + str(add_on)
+  query = str(indiv)
   results = search_videos(query)
   all_results[indiv] = results
 

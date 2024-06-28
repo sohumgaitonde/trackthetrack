@@ -8,7 +8,27 @@ from spotipy.oauth2 import SpotifyClientCredentials
 CLIENT_ID = os.getenv('CLIENT_ID')
 CLIENT_SECRET = os.getenv('CLIENT_SECRET')
 
-athletes = ['Cooper Teare', 'Yared Nuguse', 'Hobbs Kessler', 'Colin Sahlman', 'Nico Young', 'Nathan Green', 'Abdisa Fayisa']
+athletes = []
+f = open('1500m.json')
+data1500 = json.load(f)
+for i in range(len(data1500)):
+  athletes.append(data1500[i]['Athlete'][0])
+f.close()
+f = open('800m.json')
+data800 = json.load(f)
+for i in range(len(data800)):
+  athletes.append(data800[i]['Athlete'][0])
+f.close()
+f = open('5000m.json')
+data5000 = json.load(f)
+for i in range(len(data5000)):
+  athletes.append(data5000[i]['Athlete'][0])
+f.close()
+f = open('10000m.json')
+data10000 = json.load(f)
+for i in range(len(data10000)):
+  athletes.append(data10000[i]['Athlete'][0])
+f.close()
 
 def authenticate_spotify():
     """Authenticate with Spotify using Client Credentials."""
