@@ -4,17 +4,6 @@ import Search from './Search';
 import logo from '../app/assets/ttt1.png';
 import Image from 'next/image';
 
-
-const athletes = [
-  { name: 'Cooper Teare', path: '/athletes/teare' },
-  { name: 'Yared Nuguse', path: '/athletes/nuguse' },
-  { name: 'Hobbs Kessler', path: '/athletes/kessler' },
-  { name: 'Colin Sahlman', path: '/athletes/sahlman' },
-  { name: 'Nico Young', path: '/athletes/young' },
-  { name: 'Nathan Green', path: '/athletes/green' },
-  // Add more athletes here
-];
-
 const Header = () => {
 
   return (
@@ -35,7 +24,7 @@ const Header = () => {
     <a href="/rankings2" className="text-zinc-800 dark:text-white hover:text-orange-500">Rankings</a>
     <a href="/calendar2" className="text-zinc-800 dark:text-white hover:text-orange-500">Calendar</a>
     <a href="/about-us" className="text-zinc-800 dark:text-white hover:text-orange-500">About Us</a>
-    <a href="#" className="text-zinc-800 dark:text-white hover:text-orange-500">Athletes</a>
+    <a href="athlete-page" className="text-zinc-800 dark:text-white hover:text-orange-500">Athletes</a>
     <a href="#" className="text-zinc-800 dark:text-white hover:text-orange-500">Teams</a>
   </nav>
   <div className="relative">

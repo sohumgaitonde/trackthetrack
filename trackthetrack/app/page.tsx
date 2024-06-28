@@ -69,13 +69,13 @@ const HomePage: React.FC = () => {
       </header>
       <section>
         <div className='text-center'>
-          Description of the website
+          Welcome to Track the Track!
         </div>
         <div className='text-center'>
-          Goals
+          Our goal is to help bridge the gap between the average track fan and the professional sport by providing engaging athlete profiles and an in-depth calendar.
         </div>
         <div className='text-center'>
-          How it works
+          Currently, we have athlete pages for each of the top 20 men across the globe in each of the key distance events. We will be adding women's pages in the near future!
         </div>
 
       </section>

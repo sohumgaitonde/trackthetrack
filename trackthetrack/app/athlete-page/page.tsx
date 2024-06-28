@@ -45,8 +45,23 @@ const competitorsData: Record<string, {Athlete: string[], Mark: string, Venue: s
   "5000m": athletes5000,
   "10000m": athletes10000,
 }
+type Record = {
+  Athlete: string[],
+  Mark: string,
+  Venue: string, 
+  Date: string, 
+  Nationality: string
+};
+const all_athletes: Record[] = [...athletes800, ...athletes1500, ...athletes5000, ...athletes10000];
 
-const Ranking2Page: React.FC = () => {
+const sortedList = all_athletes.sort((a, b) => {
+  if (a.Athlete[0].split(" ")[1] < b.Athlete[0].split(" ")[1]) return -1;
+  if (a.Athlete[0].split(" ")[1] > b.Athlete[0].split(" ")[1]) return 1;
+  return 0;
+});
+
+
+const AthletesPage: React.FC = () => {
   const [selectedEvent, setSelectedEvent] = useState(events[0]);
   const [competitors, setCompetitors] = useState(competitorsData[events[0]]);
   const [myBool, setmyBool] = useState(true);
@@ -68,28 +83,12 @@ const Ranking2Page: React.FC = () => {
 
     <div className="min-h-40 bg-gray-100 items-center justify-center">
       <section className="mb-12">
-        <div className="max-w-sm mx-auto w-60">
-          <label htmlFor="event-selector" className="block text-lg font-medium text-blue-600 mb-3">
-            Select an Event:
-          </label>
-          <select
-            id="event-selector"
-            className="block w-48 p-3 border border-gray-300 rounded-lg shadow-sm bg-white text-gray-700 shadow-lg hover:shadow-xl transition-shadow"
-            value={selectedEvent}
-            onChange={(e) => setSelectedEvent(e.target.value)}
-          >
-            {events.map((event) => (
-              <option key={event} value={event}>
-                {event}
-              </option>
-            ))}
-          </select>
-        </div>
+        might add a search bar or filter
       </section>
 
       <section>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {competitors.map((athlete, index) => (
+          {sortedList.map((athlete, index) => (
             
             <Link href={`/athletes/${encodeURIComponent(athlete.Athlete[0].split(" ")[1].toLowerCase())}`}>
               <button key={index} className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow h-40 min-w-full">
@@ -107,4 +106,4 @@ const Ranking2Page: React.FC = () => {
   );
 };
 
-export default Ranking2Page;
+export default AthletesPage;
