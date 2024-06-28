@@ -50,11 +50,11 @@ data10000 = json.load(f)
 for i in range(len(data10000)):
   athletes.append(data10000[i]['Athlete'][0])
 f.close()
-print(len(athletes))
 
-add_on = 'Interview Workout'
+
+add_on = 'Interview'
 for indiv in athletes:
-  query = str(indiv)
+  query = str(indiv) + " " + str(add_on)
   results = search_videos(query)
   all_results[indiv] = results
 

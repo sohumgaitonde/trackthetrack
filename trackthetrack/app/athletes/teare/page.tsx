@@ -183,7 +183,7 @@ const TearePage: React.FC = () => {
     </div>
     <div className="container mx-auto p-4">
   <div className="flex flex-wrap -mx-2">
-        {spotify[athlete].episodes.slice(0, 3).map((episode, index) => (
+        {spotify['Cooper TEARE'].episodes.slice(0, 3).map((episode, index) => (
           <div key = {index} className="w-full sm:w-1/2 lg:w-1/3 px-2 mb-4">
               <iframe key={index} className="w-full mb-0 ma-0" 
               allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
