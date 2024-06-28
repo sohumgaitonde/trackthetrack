@@ -12,20 +12,6 @@ import Header from '../../components/Header'
 import { flags } from "../assets/flags/flags";
 import norway from '../assets/flags/NOR.png';
 
-const NOR = require("../assets/flags/NOR.png");
-const AUS = require("../assets/flags/AUS.png");
-const BEL = require("../assets/flags/BEL.png");
-const USA = require("../assets/flags/USA.png");
-const GBR = require("../assets/flags/GBR.png");
-const IRL = require("../assets/flags/IRL.png");
-const ESP = require("../assets/flags/ESP.png");
-const FRA = require("../assets/flags/FRA.png");
-const RSA = require("../assets/flags/RSA.png");
-const KEN = require("../assets/flags/KEN.png");
-const ETH = require("../assets/flags/ETH.png");
-const ITA = require("../assets/flags/ITA.png");
-const POR = require("../assets/flags/POR.png");
-
 const nike = require('../assets/teams/nike.png');
 const on = require('../assets/teams/on.png');
 const adidas = require('../assets/teams/adidas.png');

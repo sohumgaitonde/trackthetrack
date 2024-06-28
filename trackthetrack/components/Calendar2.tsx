@@ -9,10 +9,18 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 
 interface Event {
-  date: string;
-  title: string;
-  description: string;
-  link: string;
+  Date: string;
+  Name: string;
+  
+  "Unnamed: 2": null;
+    Venue: string;
+    Country: string;
+    "Cat.": string;
+    Discipline: string;
+    "Competition Group": string;
+    "Unnamed: 8": null;
+    "Unnamed: 7": null;
+
 }
 const eventShading = (input: string): string => {
   return category[input]
@@ -50,6 +58,17 @@ const convertDateString = (input: string): string => {
 
 const daysInMonth = (month: number, year: number) => new Date(year, month, 0).getDate();
 
+const areEventsEqual = (a: Event, b: Event): boolean => {
+  return (
+    a.Date === b.Date &&
+    a.Name === b.Name
+  );
+};
+
+const meets = eventtest.filter((record, index, self) => 
+  index === self.findIndex((r) => areEventsEqual(r, record))
+);
+
 const Calendar = () => {
   const [selectedDate, setSelectedDate] = useState<string | null>(null);
 
@@ -83,7 +102,7 @@ const Calendar = () => {
   };
 
   const getEventsForDate = (date: string) => {
-    return eventtest.filter(event => event.Date === date);
+    return meets.filter(event => event.Date === date);
   };
 
   const renderDays = () => {
@@ -93,8 +112,8 @@ const Calendar = () => {
     }
     for (let day = 1; day <= daysInCurrentMonth; day++) {
       const dateStr = `${currentYear}-${String(currentMonth).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
-      const events = eventtest.filter(event => event.Date === dateStr);
-      const hasEvent = eventtest.some(event => event.Date === dateStr);
+      const events = meets.filter(event => event.Date === dateStr);
+      const hasEvent = meets.some(event => event.Date === dateStr);
       const categoryClass = hasEvent ? eventShading(events[0]['Cat.']) : 'bg-white';
       days.push(
         <div>
