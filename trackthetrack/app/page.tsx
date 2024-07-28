@@ -69,7 +69,7 @@ const HomePage: React.FC = () => {
       </header>
       <section>
         <div className='text-center'>
-          Welcome to Track the Track!
+          Welcome to Track the Track!!
         </div>
         <div className='text-center'>
           Our goal is to help bridge the gap between the average track fan and the professional sport by providing engaging athlete profiles and an in-depth calendar.
