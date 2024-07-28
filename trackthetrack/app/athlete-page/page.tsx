@@ -11,6 +11,7 @@ import athletes10000 from '../../10000m.json';
 import Header from '../../components/Header'
 import { flags } from "../assets/flags/flags";
 import norway from '../assets/flags/NOR.png';
+import AthleteList from '../../components/AthleteList';
 
 const nike = require('../assets/teams/nike.png');
 const on = require('../assets/teams/on.png');
@@ -75,45 +76,9 @@ const AthletesPage: React.FC = () => {
       <>
         <Header/>
       </>
-
-    <div className="min-h-40 bg-gray-100 items-center justify-center">
-      <section className="mb-12">
-        might add a search bar or filter, gonna be a bit of work to implement prolly
-        <div className="max-w-sm mx-auto w-60">
-          <label htmlFor="event-selector" className="block text-lg font-medium text-blue-600 mb-3">
-            Select an Country:
-          </label>
-          <select
-            id="event-selector"
-            className="block w-48 p-3 border border-gray-300 rounded-lg shadow-sm bg-white text-gray-700 shadow-lg hover:shadow-xl transition-shadow"
-            value={selectedEvent}
-            onChange={(e) => setSelectedEvent(e.target.value)}
-          >
-            {events.map((event) => (
-              <option key={event} value={event}>
-                {event}
-              </option>
-            ))}
-          </select>
-        </div>
-      </section>
-
-      <section>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {sortedList.map((athlete, index) => (
-            
-            <Link href={`/athletes/${encodeURIComponent(athlete.Athlete[0].split(" ")[1].toLowerCase())}`}>
-              <button key={index} className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow h-40 min-w-full">
-              <h2 className="text-2xl font-semibold text-blue-700">{athlete.Athlete[0]}</h2>
-              
-              <Image src={`/flags/${athlete.Nationality}.png`} alt="Team" className='w-8' width={8} height={8}/>
-              
-            </button>
-            </Link>
-          ))}
-        </div>
-      </section>
-    </div>
+      <>
+      <AthleteList athletes={sortedList} />
+      </>
     </div>
   );
 };

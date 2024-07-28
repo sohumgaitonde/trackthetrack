@@ -77,7 +77,7 @@ const Ranking2Page: React.FC = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {competitors.map((athlete, index) => (
             
-            <Link href={`/athletes/${encodeURIComponent(athlete.Athlete[0].split(" ")[1].toLowerCase())}`}>
+            <Link key={index} href={`/athletes/${encodeURIComponent(athlete.Athlete[0].split(" ")[1].toLowerCase())}`}>
               <button key={index} className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow h-40 min-w-full">
               <h2 className="text-2xl font-semibold text-blue-700">{athlete.Athlete[0]}</h2>
               <p className="text-gray-600 mt-2">{athlete.Mark}</p>

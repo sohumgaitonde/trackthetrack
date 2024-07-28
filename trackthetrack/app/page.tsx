@@ -62,20 +62,21 @@ const HomePage: React.FC = () => {
     </>
       <header className="mb-12">
       <h1 className="text-8xl font- text-center text-blue-700 mb-4">
-      Track the Track </h1>
+      <p>{`Track the Track `}</p>
+      </h1>
       <h2 className="text-4xl font-mono text-center text-blue-500">
-        Road to the Olympics ꈨ
+        <p>{`Road to the Olympics ꈨ`}</p>
       </h2>
       </header>
       <section>
         <div className='text-center'>
-          Welcome to Track the Track!
+          <p>{`Welcome to Track the Track!!`}</p>
         </div>
         <div className='text-center'>
-          Our goal is to help bridge the gap between the average track fan and the professional sport by providing engaging athlete profiles and an in-depth calendar.
+          <p>{`Our goal is to help bridge the gap between the average track fan and the professional sport by providing engaging athlete profiles and an in-depth calendar.`}</p>
         </div>
         <div className='text-center'>
-          Currently, we have athlete pages for each of the top 20 men across the globe in each of the key distance events. We will be adding women's pages in the near future!
+          <p>{`Currently, we have athlete pages for each of the top 20 men across the globe in each of the key distance events. We will be adding women's pages in the near future!`}</p>
         </div>
 
       </section>
@@ -84,7 +85,7 @@ const HomePage: React.FC = () => {
         <div className="w-3/4">
           <div className='h-76 border p-2'>
             <div className='text-center text-2xl font-bold mb-1'> 
-            Popular Athletes
+            <p>{`Popular Athletes`}</p>
             </div>
           
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
