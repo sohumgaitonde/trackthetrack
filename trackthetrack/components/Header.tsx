@@ -3,16 +3,18 @@ import React, { useState, useEffect} from 'react';
 import Search from './Search';
 import logo from '../app/assets/ttt1.png';
 import Image from 'next/image';
+import Head from 'next/head';
+import Script from 'next/script';
 
 const Header = () => {
 
   return (
     <>
-    <head>
+    <Head>
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <script src="https://cdn.tailwindcss.com"></script>
-  </head>
+    <Script src="https://cdn.tailwindcss.com" strategy='afterInteractive'></Script>
+  </Head>
   <body>
     <header className="bg-white dark:bg-zinc-800 p-4 shadow-md flex items-center justify-between">
   <div className="flex items-center space-x-4">

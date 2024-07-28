@@ -17,6 +17,8 @@ import Spotify from 'react-spotify-embed';
 import Search from '../../../components/Search';
 import athlete_info from '../../../all_athlete_info.json'
 import Header from '../../../components/Header'
+import Head from 'next/head';
+import Script from 'next/script';
 
 
 const TearePage: React.FC = () => {
@@ -52,11 +54,11 @@ const TearePage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-100 p-6">
-      <head>
+      <Head>
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <script src="https://cdn.tailwindcss.com"></script>
-  </head>
+    <Script src="https://cdn.tailwindcss.com" strategy='afterInteractive'></Script>
+  </Head>
   <body>
   <>
       <Header />
@@ -83,7 +85,7 @@ const TearePage: React.FC = () => {
     
       
       {athlete_info['teare']['achievements'].map((achievement, index) => (
-        <div className="bg-blue-200 p-4 rounded-lg">
+        <div key={index} className="bg-blue-200 p-4 rounded-lg">
           <div className="bg-blue-400 h-1 mb-4"></div>
         <div className="text-4xl font-bold text-blue-600">{achievement[Object.keys(achievement)[0]]}</div>
         <p className="text-lg font-semibold">{Object.keys(achievement)[0]}</p>

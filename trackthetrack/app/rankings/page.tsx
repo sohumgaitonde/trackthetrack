@@ -120,7 +120,7 @@ const RankingPage: React.FC = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {competitors.map((competitor, index) => (
             
-            <Link href={`/athletes/${encodeURIComponent(competitor.name.split(" ")[1].toLowerCase())}`}>
+            <Link key={index} href={`/athletes/${encodeURIComponent(competitor.name.split(" ")[1].toLowerCase())}`}>
               <button key={index} className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow h-40">
               <h2 className="text-2xl font-semibold text-blue-700">{competitor.name}</h2>
               <p className="text-gray-600 mt-2">{competitor.info}</p>

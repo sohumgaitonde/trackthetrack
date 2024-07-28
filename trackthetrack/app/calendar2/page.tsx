@@ -37,7 +37,7 @@ const CalendarPage = () => {
       <Header />
     
       <Calendar />
-      <h1 className="text-black font-mono"> Did we miss a meet? Submit the meet name here and we'll be sure to add it!</h1>
+      <h1 className="text-black font-mono"> <p>{`Did we miss a meet? Submit the meet name here and we'll be sure to add it!`}</p></h1>
       <form onSubmit={handleSubmit} className="mb-4">
         <input
           type="text"
