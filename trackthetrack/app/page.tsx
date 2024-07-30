@@ -184,7 +184,7 @@ const HomePage: React.FC = () => {
       </section>
 
       <section className="bg-gray-100 p-4 items-center justify-center flex flex-col">
-      <h1 className="text-black font-mono text-center"> <p>{`Enter your email to stay up to date with trackthetrack!`}</p></h1>
+      <h1 className="text-black font-mono text-center p-2"> <p>{`Enter your email to stay up to date with trackthetrack!`}</p></h1>
       <form onSubmit={handleSubmit} className="mb-4">
         <input
           type="text"
@@ -195,7 +195,7 @@ const HomePage: React.FC = () => {
           required
         />
 
-        <button type="submit" className="px-4 py-2 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600">
+        <button type="submit" className="px-4 py-2 bg-blue-700 text-white rounded-lg shadow-md hover:bg-blue-600">
           Submit
         </button>
       </form>
