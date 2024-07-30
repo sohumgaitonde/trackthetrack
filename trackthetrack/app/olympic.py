@@ -25,7 +25,7 @@ athlete_rows = soup.find_all('tr', {'data-key': lambda x: x and 'mirs-table-athl
 names = []
 nationalities = []
 for row in athlete_rows:
-    print(row)
+    
     nation_abbr = row.find('div', {'class': 'wrsNoc'}).text.strip()
     athlete_name = row.find('span', {'class': 'competitor-long-name'}).text.strip()
     names.append(athlete_name)
@@ -47,7 +47,7 @@ athlete_rows = soup.find_all('tr', {'data-key': lambda x: x and 'mirs-table-athl
 names = []
 nationalities = []
 for row in athlete_rows:
-    print(row)
+    
     nation_abbr = row.find('div', {'class': 'wrsNoc'}).text.strip()
     athlete_name = row.find('span', {'class': 'competitor-long-name'}).text.strip()
     names.append(athlete_name)
@@ -69,7 +69,7 @@ athlete_rows = soup.find_all('tr', {'data-key': lambda x: x and 'mirs-table-athl
 names = []
 nationalities = []
 for row in athlete_rows:
-    print(row)
+    
     nation_abbr = row.find('div', {'class': 'wrsNoc'}).text.strip()
     athlete_name = row.find('span', {'class': 'competitor-long-name'}).text.strip()
     names.append(athlete_name)
@@ -91,7 +91,7 @@ athlete_rows = soup.find_all('tr', {'data-key': lambda x: x and 'mirs-table-athl
 names = []
 nationalities = []
 for row in athlete_rows:
-    print(row)
+    
     nation_abbr = row.find('div', {'class': 'wrsNoc'}).text.strip()
     athlete_name = row.find('span', {'class': 'competitor-long-name'}).text.strip()
     names.append(athlete_name)
@@ -101,13 +101,11 @@ athletics_dict_10000 = {
     'Nationality':nationalities
     }
 
-
-all_athletes = {
-    '800': athletics_dict_800,
-    '1500': athletics_dict_1500,
-    '5000': athletics_dict_5000,
-    '10000': athletics_dict_10000
-    }
-
-olympic_df = pd.DataFrame(all_athletes)
-olympic_df.to_json('olympic_athletes.json', orient='records')
+olympic_1500_df = pd.DataFrame(athletics_dict_1500)
+olympic_1500_df.to_json('olympic_1500.json', orient='records')
+olympic_800_df = pd.DataFrame(athletics_dict_800)
+olympic_800_df.to_json('olympic_800.json', orient='records')
+olympic_5000_df = pd.DataFrame(athletics_dict_5000)
+olympic_5000_df.to_json('olympic_5000.json', orient='records')
+olympic_10000_df = pd.DataFrame(athletics_dict_10000)
+olympic_10000_df.to_json('olympic_10000.json', orient='records')
