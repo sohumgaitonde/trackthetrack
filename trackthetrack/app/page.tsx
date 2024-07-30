@@ -92,21 +92,21 @@ const HomePage: React.FC = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
           
             
-            <Link href={`/athletes/${encodeURIComponent(rankings1500[0].Athlete[0].split(" ")[1].toLowerCase())}`}>
+            <Link href={`/athletes/ingebrigsten`}>
               <button className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow h-64 min-w-full">
                 <Image alt='ingebrigtsen' src={ingebrigtsen} className="min-w-full h-40 rounded-lg"/>
-              <h2 className="text-2xl font-semibold text-blue-700">{rankings1500[0].Athlete[0]}</h2>
+              <h2 className="text-2xl font-semibold text-blue-700">Jacob INGEBRIGSTEN</h2>
               
-              <Image src={`/flags/${rankings1500[0].Nationality}.png`} alt="Team" className='w-8' width={8} height={8}/>
+              <Image src={`/flags/NOR.png`} alt="Team" className='w-8' width={8} height={8}/>
             </button>
             </Link>
 
-            <Link href={`/athletes/${encodeURIComponent(rankings5000[9].Athlete[0].split(" ")[1].toLowerCase())}`}>
+            <Link href={`/athletes/fisher`}>
               <button className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow h-64 min-w-full">
               <Image alt='fisher' src={fisher} className="min-w-full h-40 rounded-lg"/>
-              <h2 className="text-2xl font-semibold text-blue-700">{rankings5000[9].Athlete[0]}</h2>
+              <h2 className="text-2xl font-semibold text-blue-700">Grant FISHER</h2>
               
-              <Image src={`/flags/${rankings5000[9].Nationality}.png`} alt="Team" className='w-8' width={8} height={8}/>
+              <Image src={`/flags/USA.png`} alt="Team" className='w-8' width={8} height={8}/>
             </button>
             </Link>
             <Link href={`/athletes/${encodeURIComponent(rankings800[0].Athlete[0].split(" ")[1].toLowerCase())}`}>
