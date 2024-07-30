@@ -21,6 +21,7 @@ import Link from 'next/link';
 import wanyonyi from './assets/athletes/wanyonyi.jpeg';
 import ingebrigtsen from './assets/athletes/ingebrigtsen.jpeg';
 import fisher from './assets/athletes/fisher.jpg';
+import sedjati from './assets/athletes/sedjati.jpg';
 import dayjs from 'dayjs';
 import advancedFormat from 'dayjs/plugin/advancedFormat';
 dayjs.extend(advancedFormat);
@@ -52,6 +53,19 @@ const HomePage: React.FC = () => {
     // Get the next two upcoming events
     setUpcomingEvents(filteredEvents.slice(0, 2));
   }, []);
+
+
+  const [email, setEmail] = useState('');
+
+  const handleMeetNameChange = (event) => {
+    setEmail(event.target.value);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log('Email:', email); // doesnt actually do anything, just need to store it somewhere
+    setEmail('');
+  };
   
 
   return (
@@ -83,7 +97,7 @@ const HomePage: React.FC = () => {
 
       <section className="flex bg-gray-100">
         <div className="w-3/4">
-          <div className='h-76 border p-2'>
+          <div className='h-76 p-2'>
             <div className='text-center text-2xl font-bold mb-1'> 
             <p>{`Popular Athletes`}</p>
             </div>
@@ -91,26 +105,26 @@ const HomePage: React.FC = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
           
             
-            <Link href={`/athletes/${encodeURIComponent(rankings1500[0].Athlete[0].split(" ")[1].toLowerCase())}`}>
+            <Link href={`/athletes/ingebrigsten`}>
               <button className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow h-64 min-w-full">
                 <Image alt='ingebrigtsen' src={ingebrigtsen} className="min-w-full h-40 rounded-lg"/>
-              <h2 className="text-2xl font-semibold text-blue-700">{rankings1500[0].Athlete[0]}</h2>
+              <h2 className="text-2xl font-semibold text-blue-700">Jacob INGEBRIGSTEN</h2>
               
-              <Image src={`/flags/${rankings1500[0].Nationality}.png`} alt="Team" className='w-8' width={8} height={8}/>
+              <Image src={`/flags/NOR.png`} alt="Team" className='w-8' width={8} height={8}/>
             </button>
             </Link>
 
-            <Link href={`/athletes/${encodeURIComponent(rankings5000[9].Athlete[0].split(" ")[1].toLowerCase())}`}>
+            <Link href={`/athletes/fisher`}>
               <button className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow h-64 min-w-full">
               <Image alt='fisher' src={fisher} className="min-w-full h-40 rounded-lg"/>
-              <h2 className="text-2xl font-semibold text-blue-700">{rankings5000[9].Athlete[0]}</h2>
+              <h2 className="text-2xl font-semibold text-blue-700">Grant FISHER</h2>
               
-              <Image src={`/flags/${rankings5000[9].Nationality}.png`} alt="Team" className='w-8' width={8} height={8}/>
+              <Image src={`/flags/USA.png`} alt="Team" className='w-8' width={8} height={8}/>
             </button>
             </Link>
             <Link href={`/athletes/${encodeURIComponent(rankings800[0].Athlete[0].split(" ")[1].toLowerCase())}`}>
               <button className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow h-64 min-w-full">
-              <Image alt='wanyonyi' src={wanyonyi} className="min-w-full h-40 rounded-lg"/>
+              <Image alt='sedjati' src={sedjati} className="min-w-full h-40 rounded-lg"/>
               <h2 className="text-2xl font-semibold text-blue-700">{rankings800[0].Athlete[0]}</h2>
               
               <Image src={`/flags/${rankings800[0].Nationality}.png`} alt="Team" className='w-8' width={8} height={8}/>
@@ -121,7 +135,7 @@ const HomePage: React.FC = () => {
           </div>
 
 
-          <div className='items-center justify-center border'>
+          <div className='items-center justify-center'>
           <h2 className='text-center font-bold'>Upcoming Events</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 items-center text-center">
           {upcomingEvents.length > 0 ? (
@@ -143,7 +157,7 @@ const HomePage: React.FC = () => {
 
         </div>
 
-        <div className="w-1/4 border">
+        <div className="w-1/4">
           <div className='text-2xl font-bold text-center grow'>
           1500m Rankings
           </div>
@@ -167,6 +181,24 @@ const HomePage: React.FC = () => {
           
         </div>
 
+      </section>
+
+      <section className="bg-gray-100 p-4 items-center justify-center flex flex-col">
+      <h1 className="text-black font-mono text-center p-2"> <p>{`Enter your email to stay up to date with trackthetrack!`}</p></h1>
+      <form onSubmit={handleSubmit} className="mb-4">
+        <input
+          type="text"
+          placeholder="Enter email"
+          value={email}
+          onChange={handleMeetNameChange}
+          className="p-2 border rounded-lg shadow-sm mr-2"
+          required
+        />
+
+        <button type="submit" className="px-4 py-2 bg-blue-700 text-white rounded-lg shadow-md hover:bg-blue-600">
+          Submit
+        </button>
+      </form>
       </section>
     
     </div>
