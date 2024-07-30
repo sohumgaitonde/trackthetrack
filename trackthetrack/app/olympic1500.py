@@ -21,11 +21,12 @@ html_content = driver.page_source
 soup = bs(html_content, 'html.parser')
 driver.quit()
 athlete_rows = soup.find_all('tr', {'data-key': lambda x: x and 'mirs-table-athletes' in x})
-print(athlete_rows)
+#print(athlete_rows)
 names = []
 nationalities = []
 for row in athlete_rows:
-    nation_abbr = row.find('abbr').text
+    print(row)
+    nation_abbr = row.find('div', {'class': 'wrsNoc'}).text.strip()
     athlete_name = row.find('span', {'class': 'competitor-long-name'}).text.strip()
     names.append(athlete_name)
     nationalities.append(nation_abbr)
