@@ -21,6 +21,7 @@ import Link from 'next/link';
 import wanyonyi from './assets/athletes/wanyonyi.jpeg';
 import ingebrigtsen from './assets/athletes/ingebrigtsen.jpeg';
 import fisher from './assets/athletes/fisher.jpg';
+import sedjati from './assets/athletes/sedjati.jpg';
 import dayjs from 'dayjs';
 import advancedFormat from 'dayjs/plugin/advancedFormat';
 dayjs.extend(advancedFormat);
@@ -110,7 +111,7 @@ const HomePage: React.FC = () => {
             </Link>
             <Link href={`/athletes/${encodeURIComponent(rankings800[0].Athlete[0].split(" ")[1].toLowerCase())}`}>
               <button className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow h-64 min-w-full">
-              <Image alt='wanyonyi' src={wanyonyi} className="min-w-full h-40 rounded-lg"/>
+              <Image alt='sedjati' src={sedjati} className="min-w-full h-40 rounded-lg"/>
               <h2 className="text-2xl font-semibold text-blue-700">{rankings800[0].Athlete[0]}</h2>
               
               <Image src={`/flags/${rankings800[0].Nationality}.png`} alt="Team" className='w-8' width={8} height={8}/>
