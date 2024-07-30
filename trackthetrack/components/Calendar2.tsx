@@ -119,7 +119,7 @@ const Calendar = () => {
         <div>
             <div
           key={day}
-          className={`w-full p-8 rounded-lg shadow-lg h-24 flex items-center justify-center border cursor-pointer ${categoryClass}`}
+          className={`w-full p-8 rounded-lg shadow-lg h-24 flex items-center justify-center border cursor-pointer hover:shadow-xl ${categoryClass}`}
           onClick={() => handleClickDate(dateStr)}
         >
           <div>
@@ -143,9 +143,9 @@ const Calendar = () => {
   return (
     <div className="p-4">
       <div className="flex justify-between items-center mb-4">
-        <button onClick={handlePrevMonth} className="bg-blue-500 text-white px-4 py-2 rounded">Previous</button>
+        <button onClick={handlePrevMonth} className="bg-blue-500 text-white px-4 py-2 rounded hover:shadow-xl">Previous</button>
         <h2 className="text-xl font-bold">{dayjs(`${currentYear}-${currentMonth}-01`).format('MMMM YYYY')}</h2>
-        <button onClick={handleNextMonth} className="bg-blue-500 text-white px-4 py-2 rounded">Next</button>
+        <button onClick={handleNextMonth} className="bg-blue-500 text-white px-4 py-2 rounded hover:shadow-xl">Next</button>
       </div>
       <div className="grid grid-cols-7 gap-2">
         {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((day, index) => (
