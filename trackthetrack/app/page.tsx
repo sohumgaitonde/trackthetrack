@@ -53,6 +53,19 @@ const HomePage: React.FC = () => {
     // Get the next two upcoming events
     setUpcomingEvents(filteredEvents.slice(0, 2));
   }, []);
+
+
+  const [email, setEmail] = useState('');
+
+  const handleMeetNameChange = (event) => {
+    setEmail(event.target.value);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log('Email:', email); // doesnt actually do anything, just need to store it somewhere
+    setEmail('');
+  };
   
 
   return (
@@ -84,7 +97,7 @@ const HomePage: React.FC = () => {
 
       <section className="flex bg-gray-100">
         <div className="w-3/4">
-          <div className='h-76 border p-2'>
+          <div className='h-76 p-2'>
             <div className='text-center text-2xl font-bold mb-1'> 
             <p>{`Popular Athletes`}</p>
             </div>
@@ -122,7 +135,7 @@ const HomePage: React.FC = () => {
           </div>
 
 
-          <div className='items-center justify-center border'>
+          <div className='items-center justify-center'>
           <h2 className='text-center font-bold'>Upcoming Events</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 items-center text-center">
           {upcomingEvents.length > 0 ? (
@@ -144,7 +157,7 @@ const HomePage: React.FC = () => {
 
         </div>
 
-        <div className="w-1/4 border">
+        <div className="w-1/4">
           <div className='text-2xl font-bold text-center grow'>
           1500m Rankings
           </div>
@@ -168,6 +181,24 @@ const HomePage: React.FC = () => {
           
         </div>
 
+      </section>
+
+      <section className="bg-gray-100 p-4 items-center justify-center flex flex-col">
+      <h1 className="text-black font-mono text-center"> <p>{`Enter your email to stay up to date with trackthetrack!`}</p></h1>
+      <form onSubmit={handleSubmit} className="mb-4">
+        <input
+          type="text"
+          placeholder="Enter email"
+          value={email}
+          onChange={handleMeetNameChange}
+          className="p-2 border rounded-lg shadow-sm mr-2"
+          required
+        />
+
+        <button type="submit" className="px-4 py-2 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600">
+          Submit
+        </button>
+      </form>
       </section>
     
     </div>
