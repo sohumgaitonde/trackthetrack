@@ -179,9 +179,6 @@ const Calendar = () => {
             <div key={index} className="mt-2">
               <h4 className="text-lg font-semibold">Meet Name: {event.Name}</h4>
               <p>Venue: {event.Venue}</p>
-              <Link href={event.Discipline} className="text-blue-700 underline">
-                Meet Info
-              </Link>
             </div>
           ))}
           {getEventsForDate(selectedDate).length === 0 && <p>No events for this date.</p>}
