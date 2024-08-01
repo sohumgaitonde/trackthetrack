@@ -80,7 +80,7 @@ athletics_dict_5000 = {
     }
 
 driver = webdriver.Chrome(options=chrome_options)
-url = 'https://olympics.com/en/paris-2024/entries/athletics/all-noc/men-s-10000m'
+url = 'https://olympics.com/en/paris-2024/entries/athletics/all-noc/men-s-10-000m'
 driver.get(url)
 time.sleep(6)
 html_content = driver.page_source
