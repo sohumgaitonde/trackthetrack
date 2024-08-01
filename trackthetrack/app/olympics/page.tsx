@@ -11,6 +11,7 @@ import olympic10000 from '../../olympic_10000.json';
 import Header from '../../components/Header';
 import olympics from '../../olympic_athletes.json';
 
+
 const nike = require('../assets/teams/nike.png');
 
 const events = [
@@ -19,12 +20,66 @@ const events = [
   "5000m",
   "10000m",
 ];
+const countryCodes: { [key: string]: string } = {
+  "Bahrain": "BRN",
+  "Algeria": "ALG",
+  "Australia": "AUS",
+  "Armenia": "ARM",
+  "Belgium": "BEL",
+  "Botswana": "BOT",
+  "Cambodia": "CAM",
+  "Canada": "CAN",
+  "Cook Islands": "COK",
+  "Czechia": "CZE",
+  "Dominica": "DMA",
+  "EOR": "EOR",
+  "France": "FRA",
+  "Great Britain": "GBR",
+  "Ireland": "IRL",
+  "Italy": "ITA",
+  "Jamaica": "JAM",
+  "Kenya": "KEN",
+  "Mexico": "MEX",
+  "Morocco": "MAR",
+  "Netherlands": "NED",
+  "Nigeria": "NGR",
+  "Norway": "NOR",
+  "Palestine": "PLE",
+  "Poland": "POL",
+  "Qatar": "QAT",
+  "Somalia": "SOM",
+  "South Africa": "RSA",
+  "South Sudan": "SSD",
+  "Spain": "ESP",
+  "StVincent&Grenadines": "VIN",
+  "Sweden": "SWE",
+  "Uganda": "UGA",
+  "Austria": "AUT",
+  "Ethiopia": "ETH",
+  "Portugal": "POR",
+  "United States": "USA",
+  "Venezuela": "VEN",
+  "Burundi": "BDI",
+  "Djibouti": "DJI",
+  "Eritrea": "ERI",
+  "Guatemala": "GUA",
+  "Serbia": "SRB",
+  "Switzerland": "SUI",
+  "Uruguay": "URU",
+  "Japan": "JPN",
+  "Rwanda": "RWA",
+  "New Zealand": "NZL",
+  "Sudan": "SUD",
+  "Germany": "GER"
+  // Add more countries as needed
+};
 const competitorsData: Record<string, {Athlete: string, Nationality: string}> = {
   "800m": olympic800,
   "1500m": olympic1500,
   "5000m": olympic5000,
   "10000m": olympic10000,
 }
+
 
 const OlympicsPage: React.FC = () => {
   const [selectedEvent, setSelectedEvent] = useState(events[0]);
@@ -75,7 +130,7 @@ const OlympicsPage: React.FC = () => {
               <button key={index} className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow h-40 min-w-full">
               <h2 className="text-2xl font-semibold text-blue-700">{athlete.Athlete[0]}</h2>
               
-              <Image src={`/flags/${athlete.Nationality.substring(0,3).toUpperCase()}.png`} alt="Team" className='w-8' width={8} height={8}/>
+              <Image src={`/flags/${countryCodes[athlete.Nationality]}.png`} alt="Team" className='w-8' width={8} height={8}/>
               
             </button>
             </Link>
