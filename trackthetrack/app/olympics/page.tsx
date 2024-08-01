@@ -71,9 +71,9 @@ const OlympicsPage: React.FC = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {competitors.map((athlete, index) => (
             
-            <Link key={index} href={`/athletes/${encodeURIComponent(athlete.Athlete.split(" ")[1].toLowerCase())}`}>
+            <Link key={index} href={athlete.Athlete[1]}>
               <button key={index} className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow h-40 min-w-full">
-              <h2 className="text-2xl font-semibold text-blue-700">{athlete.Athlete}</h2>
+              <h2 className="text-2xl font-semibold text-blue-700">{athlete.Athlete[0]}</h2>
               
               <Image src={`/flags/${athlete.Nationality.substring(0,3).toUpperCase()}.png`} alt="Team" className='w-8' width={8} height={8}/>
               
