@@ -27,7 +27,6 @@ const Header = () => {
     <a href="/calendar2" className="text-zinc-800 dark:text-white hover:text-orange-500">Calendar</a>
     <a href="/about-us" className="text-zinc-800 dark:text-white hover:text-orange-500">About Us</a>
     <a href="/athlete-page" className="text-zinc-800 dark:text-white hover:text-orange-500">Athletes</a>
-    <a href="#" className="text-zinc-800 dark:text-white hover:text-orange-500">Teams</a>
     <a href="/olympics" className="text-zinc-800 dark:text-white hover:text-orange-500">Olympians</a>
   </nav>
   <div className="relative">
