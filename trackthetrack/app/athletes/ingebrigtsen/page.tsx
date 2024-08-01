@@ -5,7 +5,7 @@ import 'tailwindcss/tailwind.css';
 import Link from 'next/link';
 import logo from '../../assets/ttt1.png';
 import Image from 'next/image';
-import athlete_picture from '../../assets/athletes/teare.jpeg';
+import athlete_picture from '../../assets/athletes/ingebrigtsen.jpeg';
 import team_logo from '../../assets/teams/nike.png';
 import instagram from '../../assets/instagram.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -24,8 +24,8 @@ import Script from 'next/script';
 const IngebrigtsenPage: React.FC = () => {
   const athlete = 'Jakob Ingebrigtsen';
   const videos = youtube['Jakob INGEBRIGTSEN'];
-  const events = Object.keys(results);
-  const result_columns = Object.keys(results[events[0]][0]);
+  const events = Object.keys(athlete_info['ingebrigtsen']['results'][0]);
+  const result_columns = Object.keys(athlete_info['ingebrigtsen']['results'][0][events[0]][0]);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const even = (index: any) => {
@@ -111,7 +111,7 @@ const IngebrigtsenPage: React.FC = () => {
                 </tr>
               </thead>
               <tbody>
-                {results[event].map((result, resultIndex) => (
+                {athlete_info['ingebrigtsen']['results'][0][event].map((result, resultIndex) => (
                   <tr key={resultIndex} className={`${resultIndex % 2 === 0 ? 'bg-white' : 'bg-gray-200'}`}>
                     {result_columns.map((col, colIndex) => (
                       <td key={colIndex} className="p-2">{result[col]}</td>
