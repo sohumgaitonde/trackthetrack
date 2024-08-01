@@ -129,8 +129,12 @@ const OlympicsPage: React.FC = () => {
             <Link key={index} href={athlete.Athlete[1]}>
               <button key={index} className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow h-40 min-w-full">
               <h2 className="text-2xl font-semibold text-blue-700">{athlete.Athlete[0]}</h2>
-              
+              <section className="flex">
               <Image src={`/flags/${countryCodes[athlete.Nationality]}.png`} alt="Team" className='w-8' width={8} height={8}/>
+              <p>
+                {athlete.Nationality}
+              </p>
+              </section>
               
             </button>
             </Link>
