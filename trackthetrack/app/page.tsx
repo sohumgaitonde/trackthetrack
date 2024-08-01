@@ -26,6 +26,8 @@ import dayjs from 'dayjs';
 import advancedFormat from 'dayjs/plugin/advancedFormat';
 dayjs.extend(advancedFormat);
 import calendarPreview from '../calendartest.json';
+import { saveAs } from 'file-saver';
+import Papa from 'papaparse';
 
 
 
@@ -56,6 +58,8 @@ const HomePage: React.FC = () => {
 
 
   const [email, setEmail] = useState('');
+  const [data, setData] = useState<Array<{email: string }>>([]);
+
 
   const handleMeetNameChange = (event) => {
     setEmail(event.target.value);
@@ -65,6 +69,14 @@ const HomePage: React.FC = () => {
     event.preventDefault();
     console.log('Email:', email); // doesnt actually do anything, just need to store it somewhere
     setEmail('');
+  };
+  const handleDownload = () => {
+    const csv = Papa.unparse(data, {
+      header: true,
+      columns: ["Email"]
+    });
+    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+    saveAs(blob, 'emails.csv');
   };
   
 
@@ -185,7 +197,7 @@ const HomePage: React.FC = () => {
 
       <section className="bg-gray-100 p-4 items-center justify-center flex flex-col">
       <h1 className="text-black font-mono text-center p-2"> <p>{`Enter your email to stay up to date with trackthetrack!`}</p></h1>
-      <form onSubmit={handleSubmit} className="mb-4">
+      <form onSubmit={handleDownload} className="mb-4">
         <input
           type="text"
           placeholder="Enter email"

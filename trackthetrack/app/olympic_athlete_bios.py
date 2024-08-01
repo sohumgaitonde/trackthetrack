@@ -12,7 +12,7 @@ chrome_options = webdriver.ChromeOptions()
 
 
 driver = webdriver.Chrome(options=chrome_options)
-
+links = []
 
 url = 'https://olympics.com/en/paris-2024/entries/athletics/all-noc/men-s-1500m'
 driver.get(url)
@@ -32,6 +32,7 @@ for row in athlete_rows:
     if a_tag:
         name = a_tag.text.strip()
         link = 'https://olympics.com' + a_tag['href']
+        links.append(link)
         names.append((athlete_name, link))
     nationalities.append(nation_abbr)
 athletics_dict_1500 = {
@@ -58,6 +59,7 @@ for row in athlete_rows:
     if a_tag:
         name = a_tag.text.strip()
         link = 'https://olympics.com' + a_tag['href']
+        links.append(link)
         names.append((athlete_name, link))
     nationalities.append(nation_abbr)
 athletics_dict_800 = {
@@ -84,6 +86,7 @@ for row in athlete_rows:
     if a_tag:
         name = a_tag.text.strip()
         link = 'https://olympics.com' + a_tag['href']
+        links.append(link)
         names.append((athlete_name, link))
     nationalities.append(nation_abbr)
 athletics_dict_5000 = {
@@ -110,12 +113,16 @@ for row in athlete_rows:
     if a_tag:
         name = a_tag.text.strip()
         link = 'https://olympics.com' + a_tag['href']
+        links.append(link)
         names.append((athlete_name, link))
     nationalities.append(nation_abbr)
 athletics_dict_10000 = {
     'Athlete':names,
     'Nationality':nationalities
     }
+
+
+
 
 olympic_1500_df = pd.DataFrame(athletics_dict_1500)
 olympic_1500_df.to_json('olympic_1500.json', orient='records')
