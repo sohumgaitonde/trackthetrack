@@ -21,9 +21,9 @@ import Head from 'next/head';
 import Script from 'next/script';
 
 
-const NugusePage: React.FC = () => {
-  const athlete = 'Yared Nuguse';
-  const videos = youtube['Yared NUGUSE'];
+const IngebrigtsenPage: React.FC = () => {
+  const athlete = 'Jakob Ingebrigtsen';
+  const videos = youtube['Jakob INGEBRIGTSEN'];
   const events = Object.keys(results);
   const result_columns = Object.keys(results[events[0]][0]);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -71,7 +71,7 @@ const NugusePage: React.FC = () => {
 
             <div className="text-center mb-4">
                 <p className="text-xl">Age: 24</p>
-                <p className="text-xl">Nationality: {athlete_info['teare']['nationality']}</p>
+                <p className="text-xl">Nationality: {athlete_info['ingebrigtsen']['nationality']}</p>
             </div>
             <a href='https://www.instagram.com/cooperteare/' target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
                 Follow on Instagram
@@ -84,7 +84,7 @@ const NugusePage: React.FC = () => {
   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
     
       
-      {athlete_info['teare']['achievements'].map((achievement, index) => (
+      {athlete_info['ingebrigtsen']['achievements'].map((achievement, index) => (
         <div key={index} className="bg-blue-200 p-4 rounded-lg">
           <div className="bg-blue-400 h-1 mb-4"></div>
         <div className="text-4xl font-bold text-blue-600">{achievement[Object.keys(achievement)[0]]}</div>
@@ -185,7 +185,7 @@ const NugusePage: React.FC = () => {
     </div>
     <div className="container mx-auto p-4">
   <div className="flex flex-wrap -mx-2">
-        {spotify['Yared NUGUSE'].episodes.slice(0, 3).map((episode, index) => (
+        {spotify['Jakob INGEBRIGTSEN'].episodes.slice(0, 3).map((episode, index) => (
           <div key = {index} className="w-full sm:w-1/2 lg:w-1/3 px-2 mb-4">
               <iframe key={index} className="w-full mb-0 ma-0" 
               allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
@@ -201,4 +201,4 @@ const NugusePage: React.FC = () => {
   );
 };
 
-export default NugusePage;
+export default IngebrigtsenPage;
